@@ -10,8 +10,11 @@ import error from '../utils/errorHandler.js'
 gulp.task('watch', () => {
   global.watch = true;
 
-  watch(`${paths.baseSrc}/sass/**/*.{sass,css}`, () => {
-    runSequence('sass', reload.bind(null, `${paths.dist.styles}/app.min.css`));
+  watch(`${paths.src.styles}/**/*.{scss,css}`, () => {
+    runSequence('scss', reload.bind(null, `${paths.dist.styles}/index.css`));
+  });
+  watch(`${paths.src.images}/png-sprite/*`, () => {
+    runSequence('png-sprite', reload);
   });
 
   watch(`${paths.baseSrc}/jade/*.jade`, () => {

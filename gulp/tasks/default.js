@@ -3,8 +3,9 @@ import runSequence from 'run-sequence';
 
 gulp.task('default', () => {
   runSequence([
+      'png-sprite',
       'markup',
-      'sass',
+      'scss',
       'scripts:compile',
       'static'
     ],

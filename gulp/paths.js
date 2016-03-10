@@ -3,16 +3,23 @@ export default {
   baseDist: './dist',
 
   src: {
-    styles: './app/styles',
-    svg: './app/svg',
+    styles: './app/scss',
+    sprites: './app/scss/sprites',
+    images: './app/images',
     scripts: './app/scripts',
     static: './app/data'
   },
 
   dist: {
-    styles: './dist/assets/styles',
+    styles: './dist/css',
     images: './dist/images',
-    scripts: './dist/scripts',
+    scripts: './dist/js',
     static: './dist/data'
+  },
+
+  inline: {
+    styles : '/css',
+    images : '/images'
   }
+
 };

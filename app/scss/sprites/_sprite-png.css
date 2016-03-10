@@ -1,0 +1,215 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+```html
+<!-- `display: block` sprite -->
+<div class="icon-home"></div>
+
+<!-- `display: inline-block` sprite -->
+<img class="icon-home" />
+```
+*/
+.icon-about-line {
+  background-image: url(/images/sprite.png);
+  background-position: -179px 0px;
+  width: 157px;
+  height: 17px;
+}
+.icon-address-icon {
+  background-image: url(/images/sprite.png);
+  background-position: -179px -54px;
+  width: 41px;
+  height: 43px;
+}
+.icon-btn-load-ico-hover {
+  background-image: url(/images/sprite.png);
+  background-position: -282px -54px;
+  width: 42px;
+  height: 30px;
+}
+.icon-btn-load-ico {
+  background-image: url(/images/sprite.png);
+  background-position: -230px -54px;
+  width: 42px;
+  height: 30px;
+}
+.icon-button-arrow {
+  background-image: url(/images/sprite.png);
+  background-position: -207px -149px;
+  width: 18px;
+  height: 16px;
+}
+.icon-clients-next-hover {
+  background-image: url(/images/sprite.png);
+  background-position: -87px -179px;
+  width: 19px;
+  height: 36px;
+}
+.icon-clients-next {
+  background-image: url(/images/sprite.png);
+  background-position: -58px -179px;
+  width: 19px;
+  height: 36px;
+}
+.icon-clients-prev-hover {
+  background-image: url(/images/sprite.png);
+  background-position: 0px -179px;
+  width: 19px;
+  height: 36px;
+}
+.icon-clients-prev {
+  background-image: url(/images/sprite.png);
+  background-position: -29px -179px;
+  width: 19px;
+  height: 36px;
+}
+.icon-file-icon {
+  background-image: url(/images/sprite.png);
+  background-position: -218px -107px;
+  width: 16px;
+  height: 22px;
+}
+.icon-link-arrow-right {
+  background-image: url(/images/sprite.png);
+  background-position: -235px -149px;
+  width: 18px;
+  height: 16px;
+}
+.icon-load-icon {
+  background-image: url(/images/sprite.png);
+  background-position: -179px -107px;
+  width: 29px;
+  height: 32px;
+}
+.icon-location-icon {
+  background-image: url(/images/sprite.png);
+  background-position: -263px -149px;
+  width: 10px;
+  height: 15px;
+}
+.icon-select-opener {
+  background-image: url(/images/sprite.png);
+  background-position: -314px -107px;
+  width: 7px;
+  height: 5px;
+}
+.icon-soc-arrow {
+  background-image: url(/images/sprite.png);
+  background-position: -179px -149px;
+  width: 18px;
+  height: 16px;
+}
+.icon-text-box-decor {
+  background-image: url(/images/sprite.png);
+  background-position: -179px -27px;
+  width: 157px;
+  height: 17px;
+}
+.icon-trigger-decor-2 {
+  background-image: url(/images/sprite.png);
+  background-position: -244px -107px;
+  width: 24px;
+  height: 14px;
+}
+.icon-trigger-decor-3 {
+  background-image: url(/images/sprite.png);
+  background-position: -91px 0px;
+  width: 78px;
+  height: 169px;
+}
+.icon-trigger-decor-w {
+  background-image: url(/images/sprite.png);
+  background-position: 0px 0px;
+  width: 81px;
+  height: 169px;
+}
+.icon-view-arrow {
+  background-image: url(/images/sprite.png);
+  background-position: -278px -107px;
+  width: 26px;
+  height: 9px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  .icon-about-line {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-address-icon {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-btn-load-ico-hover {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-btn-load-ico {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-button-arrow {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-clients-next-hover {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-clients-next {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-clients-prev-hover {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-clients-prev {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-file-icon {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-link-arrow-right {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-load-icon {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-location-icon {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-select-opener {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-soc-arrow {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-text-box-decor {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-trigger-decor-2 {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-trigger-decor-3 {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-trigger-decor-w {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+  .icon-view-arrow {
+    background-image: url(/images/sprite@2x.png);
+    background-size: 336px 215px;
+  }
+}
