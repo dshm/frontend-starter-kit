@@ -26,7 +26,7 @@ gulp.task('watch', () => {
   });
 
 
-  watch([`${paths.baseSrc}/{scripts,blocks}/**/*.js`, `!${paths.src.scripts}/vendor/*.js`], () => {
+  watch([`${paths.baseSrc}/{scripts}/**/*.js`, `!${paths.src.scripts}/vendor/*.js`], () => {
     runSequence('scripts:compile', reload);
   });
 });

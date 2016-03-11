@@ -48,6 +48,7 @@
     "gulp-postcss": "^6.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.2.0",
+    "gulp-strip-css-comments": "^1.2.0",
     "gulp-uglify": "^1.5.3",
     "gulp-uncss": "^1.0.4",
     "gulp-util": "^3.0.7",
@@ -61,15 +62,6 @@
     "vinyl-paths": "^2.1.0",
     "vinyl-source-stream": "^1.1.0",
     "webpack": "^1.12.14"
-  },
-  "browsers": {
-    "android": 4,
-    "chrome": 42,
-    "firefox": 37,
-    "ie": 10,
-    "ios": 7,
-    "opera": 28,
-    "safari": 7
   },
   "dependencies": {
     "react": "^0.14.7",

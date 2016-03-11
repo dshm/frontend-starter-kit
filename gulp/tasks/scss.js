@@ -4,19 +4,21 @@ import plumber from 'gulp-plumber';
 import postcss from 'gulp-postcss';
 import flexfixes from 'postcss-flexbugs-fixes';
 import autoprefixer from 'gulp-autoprefixer';
+import stripCssComments from 'gulp-strip-css-comments';
 import uncss from 'gulp-uncss';
 import errorHandler from '../utils/errorHandler';
 import paths from '../paths';
-import {
-  browsers
-} from '../../package.json';
+import { ignoreOptions } from '../../uncss.json';
+import { browsers } from '../../browsers.json';
 
 gulp.task('scss', () => {
-  return gulp.src(`${paths.src.styles}/index.scss`)
+  return gulp
+    .src(`${paths.src.styles}/index.scss`)
     .pipe(plumber({
       errorHandler
     }))
     .pipe(scss().on('error', scss.logError))
+    .pipe(stripCssComments())
     .pipe(autoprefixer({
       browsers: [
         `Android >= ${browsers.android}`,
@@ -33,17 +35,7 @@ gulp.task('scss', () => {
       flexfixes()
     ]))
     .pipe(uncss({
-      ignore: [
-        /:hover/,
-        /.active/,
-        /touch/,
-        /owl/,
-        /svg/,
-        /animated/,
-        /placeholder/,
-        /error/,
-        /disabled/
-      ],
+      ignore: [ignoreOptions],
       html: [`${paths.baseDist}/*.html`]
     }))
     .pipe(gulp.dest(paths.dist.styles));

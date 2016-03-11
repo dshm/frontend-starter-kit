@@ -6,7 +6,8 @@ import stripCssComments from 'gulp-strip-css-comments';
 import paths from '../paths';
 
 gulp.task('png-sprite', () => {
-  const pngSprite = gulp.src(`${paths.baseSrc}/images/png-sprite/*`)
+  const sprite = gulp
+    .src(`${paths.baseSrc}/images/png-sprite/*`)
     .pipe(plumber({
       errorHandler
     }))
@@ -16,10 +17,10 @@ gulp.task('png-sprite', () => {
       retinaImgPath: `${paths.inline.images}/sprite@2x.png`,
       imgPath: `${paths.inline.images}/sprite.png`,
       retinaSrcFilter: `${paths.src.images}/png-sprite/*@2x.png`,
-      padding: 10,
+      padding: 5,
       cssName: '_sprite-png.css'
     }));
-  pngSprite.img.pipe(gulp.dest(paths.dist.images));
-  pngSprite.css.pipe(stripCssComments())
+  sprite.img.pipe(gulp.dest(paths.dist.images));
+  sprite.css.pipe(stripCssComments())
     .pipe(gulp.dest(paths.src.sprites));
 });

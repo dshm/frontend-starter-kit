@@ -16,7 +16,6 @@ gulp.task('scripts:compile', () => {
   return bundler
     .bundle()
     .on('error', (err) => {
-      console.error(err);
       this.emit('end');
     })
     .pipe(source('app.js'))

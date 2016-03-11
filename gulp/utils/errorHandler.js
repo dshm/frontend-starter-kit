@@ -1,8 +1,8 @@
 import gutil from 'gulp-util';
 
-export default function(error) {
+export default (error) => {
   gutil.log([
-    (error.name + ' in ' + error.plugin).bold.red,
+    (`${error.name} in ${error.plugin}`).bold.red,
     '',
     error.message,
     ''

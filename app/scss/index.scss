@@ -1,5 +1,8 @@
+//normalize
+@import "normalize";
+//mixins
 @import "mixins";
-@import "home";
-
+//project styles
+@import "app/main";
 //imports sprites
 @import "sprites/sprite-png";

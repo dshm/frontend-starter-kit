@@ -1,0 +1,3 @@
+{
+  "ignoreOptions": "/:hover/, /.active/, /touch/, /owl/, /svg/, /animated/, /placeholder/,/error/, /disabled/"
+}

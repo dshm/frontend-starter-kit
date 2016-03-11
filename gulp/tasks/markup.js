@@ -8,23 +8,27 @@ import rename from 'gulp-rename';
 import prettify from 'gulp-html-prettify';
 import errorHandler from '../utils/errorHandler';
 import paths from '../paths';
+import { markup } from '../../options.json';
 
 const data = {
   timestamp: new Date()
 };
- 
+
 gulp.task('markup', () => {
-  return gulp.src(`${paths.baseSrc}/jade/*.jade`)
+  return gulp
+    .src(
+      gulpif(markup === 'jade', `${paths.baseSrc}/jade/*.jade`, `${paths.baseSrc}/*.html`)
+    )
     .pipe(plumber({
       errorHandler
     }))
-    .pipe(cached('jade'))
+    .pipe(gulpif(markup === 'jade', cached('jade')))
     .pipe(gulpif(global.watch, inheritance({
       basedir: paths.baseSrc
     })))
-    .pipe(jade({
+    .pipe(gulpif(markup === 'jade', jade({
       data
-    }))
+    })))
     .pipe(prettify({
       brace_style: 'expand',
       indent_size: 2,
@@ -32,8 +36,8 @@ gulp.task('markup', () => {
       indent_inner_html: true,
       preserve_newlines: true
     }))
-    .pipe(rename({
+    .pipe(gulpif(markup === 'jade', rename({
       dirname: '.'
-    }))
+    })))
     .pipe(gulp.dest(paths.baseDist))
 });
