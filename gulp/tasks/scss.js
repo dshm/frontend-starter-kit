@@ -1,7 +1,10 @@
 import gulp from 'gulp';
 import scss from 'gulp-sass';
 import plumber from 'gulp-plumber';
+import postcss from 'gulp-postcss';
+import flexfixes from 'postcss-flexbugs-fixes';
 import autoprefixer from 'gulp-autoprefixer';
+import uncss from 'gulp-uncss';
 import errorHandler from '../utils/errorHandler';
 import paths from '../paths';
 import {
@@ -25,6 +28,23 @@ gulp.task('scss', () => {
         `Safari >= ${browsers.safari}`
       ],
       cascade: false
+    }))
+    .pipe(postcss([
+      flexfixes()
+    ]))
+    .pipe(uncss({
+      ignore: [
+        /:hover/,
+        /.active/,
+        /touch/,
+        /owl/,
+        /svg/,
+        /animated/,
+        /placeholder/,
+        /error/,
+        /disabled/
+      ],
+      html: [`${paths.baseDist}/*.html`]
     }))
     .pipe(gulp.dest(paths.dist.styles));
 });

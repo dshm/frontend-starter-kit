@@ -2,10 +2,11 @@ import gulp from 'gulp';
 import plumber from 'gulp-plumber';
 import errorHandler from '../utils/errorHandler';
 import spritesmith from 'gulp.spritesmith';
+import stripCssComments from 'gulp-strip-css-comments';
 import paths from '../paths';
 
 gulp.task('png-sprite', () => {
-  const pngSprite =  gulp.src(`${paths.baseSrc}/images/png-sprite/*`)
+  const pngSprite = gulp.src(`${paths.baseSrc}/images/png-sprite/*`)
     .pipe(plumber({
       errorHandler
     }))
@@ -19,5 +20,6 @@ gulp.task('png-sprite', () => {
       cssName: '_sprite-png.css'
     }));
   pngSprite.img.pipe(gulp.dest(paths.dist.images));
-  pngSprite.css.pipe(gulp.dest(paths.src.sprites));
+  pngSprite.css.pipe(stripCssComments())
+    .pipe(gulp.dest(paths.src.sprites));
 });
