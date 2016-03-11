@@ -7,7 +7,7 @@
 }
 .icon-location {
   background-image: url(/images/sprite.png);
-  background-position: -39px 0px;
+  background-position: -34px 0px;
   width: 10px;
   height: 15px;
 }
@@ -16,10 +16,10 @@
        (min-resolution: 192dpi) {
   .icon-load {
     background-image: url(/images/sprite@2x.png);
-    background-size: 49px 32px;
+    background-size: 44px 32px;
   }
   .icon-location {
     background-image: url(/images/sprite@2x.png);
-    background-size: 49px 32px;
+    background-size: 44px 32px;
   }
 }
