@@ -13,8 +13,13 @@ gulp.task('watch', () => {
   watch(`${paths.src.styles}/**/*.{scss,css}`, () => {
     runSequence('scss', reload.bind(null, `${paths.dist.styles}/index.css`));
   });
+
   watch(`${paths.src.images}/png-sprite/*`, () => {
     runSequence('png-sprite', reload);
+  });
+
+  watch(`${paths.src.images}/svg-sprite/*`, () => {
+    runSequence('svg-sprite', reload);
   });
 
   watch(`${paths.baseSrc}/jade/*.jade`, () => {

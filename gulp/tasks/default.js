@@ -5,6 +5,7 @@ gulp.task('default', () => {
   runSequence(
     [
       'png-sprite',
+      'svg-sprite',
       'markup',
       'scss',
       'scripts:compile',

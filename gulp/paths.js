@@ -6,6 +6,7 @@ export default {
     styles: './app/scss',
     sprites: './app/scss/sprites',
     images: './app/images',
+    svg: './app/svg',
     scripts: './app/scripts',
     static: './app/data'
   },
@@ -18,8 +19,8 @@ export default {
   },
 
   inline: {
-    styles : '/css',
-    images : '/images'
+    styles: '/css',
+    images: '/images'
   }
 
 };
