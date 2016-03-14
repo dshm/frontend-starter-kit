@@ -1,9 +1,7 @@
 import gulp from 'gulp';
 import watch from 'gulp-watch';
 import runSequence from 'run-sequence';
-import {
-  reload
-} from 'browser-sync';
+import { reload } from 'browser-sync';
 import paths from '../paths';
 import error from '../utils/errorHandler.js'
 
@@ -23,6 +21,10 @@ gulp.task('watch', () => {
   });
 
   watch(`${paths.baseSrc}/jade/*.jade`, () => {
+    runSequence('markup', reload);
+  });
+
+  watch(`${paths.baseSrc}/*.html`, () => {
     runSequence('markup', reload);
   });
 

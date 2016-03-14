@@ -23,3 +23,10 @@ gulp.task('scripts:compile', () => {
     .pipe(uglify())
     .pipe(gulp.dest(paths.dist.scripts));
 });
+
+gulp.task('scripts:copy', () => {
+  return gulp
+    .src(`${paths.src.scripts}/vendor/*.js`)
+    .pipe(uglify())
+    .pipe(gulp.dest(`${paths.dist.scripts}/vendor`));
+});

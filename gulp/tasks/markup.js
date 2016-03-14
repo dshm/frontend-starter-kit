@@ -17,7 +17,7 @@ const data = {
 gulp.task('markup', () => {
   return gulp
     .src(
-      gulpif(markup === 'jade', `${paths.baseSrc}/jade/*.jade`, `${paths.baseSrc}/*.html`)
+      gulpif(markup === 'jade', `${paths.baseSrc}/jade/**/*.jade`, `${paths.baseSrc}/*.html`)
     )
     .pipe(plumber({
       errorHandler

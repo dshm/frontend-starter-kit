@@ -9,6 +9,7 @@ gulp.task('default', () => {
       'markup',
       'scss',
       'scripts:compile',
+      'scripts:copy',
       'static'
     ],
     'livereload',
