@@ -10,6 +10,7 @@ gulp.task('default', () => {
       'scss',
       'scripts:compile',
       'scripts:copy',
+      'images',
       'static'
     ],
     'livereload',

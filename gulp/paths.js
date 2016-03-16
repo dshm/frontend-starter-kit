@@ -4,7 +4,9 @@ export default {
 
   src: {
     styles: './app/scss',
-    sprites: './app/scss/sprites',
+    spritecss: './app/scss/sprites',
+    pngsprite: './app/png-sprite',
+    svgsprite: './app/png-sprite',
     images: './app/images',
     svg: './app/svg',
     scripts: './app/scripts',

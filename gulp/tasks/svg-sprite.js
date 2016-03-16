@@ -22,7 +22,7 @@ const config = {
 
 gulp.task('svg-sprite', () => {
   return gulp
-    .src(`${paths.baseSrc}/images/svg-sprite/*.svg`)
+    .src(`${paths.src.svgsprite}/*.svg`)
     .pipe(plumber({
       errorHandler
     }))

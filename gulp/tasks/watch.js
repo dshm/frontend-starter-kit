@@ -1,7 +1,9 @@
 import gulp from 'gulp';
 import watch from 'gulp-watch';
 import runSequence from 'run-sequence';
-import { reload } from 'browser-sync';
+import {
+  reload
+} from 'browser-sync';
 import paths from '../paths';
 import error from '../utils/errorHandler.js'
 
@@ -12,11 +14,11 @@ gulp.task('watch', () => {
     runSequence('scss', reload.bind(null, `${paths.dist.styles}/index.css`));
   });
 
-  watch(`${paths.src.images}/png-sprite/*`, () => {
+  watch(`${paths.src.pngsprite}/*`, () => {
     runSequence('png-sprite', reload);
   });
 
-  watch(`${paths.src.images}/svg-sprite/*`, () => {
+  watch(`${paths.src.svgsprite}/*`, () => {
     runSequence('svg-sprite', reload);
   });
 
@@ -30,6 +32,10 @@ gulp.task('watch', () => {
 
   watch(`${paths.src.static}/**/*`, () => {
     runSequence('static', reload);
+  });
+
+  watch(`${paths.src.images}/*.*`, () => {
+    runSequence('images', reload);
   });
 
 

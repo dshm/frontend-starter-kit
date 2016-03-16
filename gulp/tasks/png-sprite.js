@@ -7,7 +7,7 @@ import paths from '../paths';
 
 gulp.task('png-sprite', () => {
   const sprite = gulp
-    .src(`${paths.baseSrc}/images/png-sprite/*`)
+    .src(`${paths.src.pngsprite}/*`)
     .pipe(plumber({
       errorHandler
     }))
@@ -16,11 +16,11 @@ gulp.task('png-sprite', () => {
       retinaImgName: 'sprite@2x.png',
       retinaImgPath: `${paths.inline.images}/sprite@2x.png`,
       imgPath: `${paths.inline.images}/sprite.png`,
-      retinaSrcFilter: `${paths.src.images}/png-sprite/*@2x.png`,
+      retinaSrcFilter: `${paths.src.pngsprite}/*@2x.png`,
       padding: 5,
       cssName: '_sprite-png.css'
     }));
   sprite.img.pipe(gulp.dest(paths.dist.images));
   sprite.css.pipe(stripCssComments())
-    .pipe(gulp.dest(paths.src.sprites));
+    .pipe(gulp.dest(paths.src.spritecss));
 });

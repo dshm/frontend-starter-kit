@@ -4,6 +4,6 @@ import paths from '../paths';
 
 gulp.task('zip', () => {
   return gulp.src([`${paths.baseDist}/**/*`, `!${paths.baseDist}/*.zip`])
-    .pipe(zip('dest.zip'))
+    .pipe(zip('dist.zip'))
     .pipe(gulp.dest(paths.baseDist));
 });
