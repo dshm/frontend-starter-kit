@@ -1,11 +1,8 @@
 import gulp from 'gulp';
 import watch from 'gulp-watch';
 import runSequence from 'run-sequence';
-import {
-  reload
-} from 'browser-sync';
+import { reload } from 'browser-sync';
 import paths from '../paths';
-import error from '../utils/errorHandler.js'
 
 gulp.task('watch', () => {
   global.watch = true;
@@ -38,8 +35,11 @@ gulp.task('watch', () => {
     runSequence('images', reload);
   });
 
-
-  watch([`${paths.baseSrc}/{scripts}/**/*.js`, `!${paths.src.scripts}/vendor/*.js`], () => {
+  watch(`${paths.src.scripts}/*.js`, () => {
     runSequence('scripts:compile', reload);
+  });
+
+  watch(` ${paths.src.scripts}/vendor/*.js`, () => {
+    runSequence('scripts:copy', reload);
   });
 });
