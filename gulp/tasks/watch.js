@@ -35,11 +35,11 @@ gulp.task('watch', () => {
     runSequence('images', reload);
   });
 
-  watch(`${paths.src.scripts}/*.js`, () => {
+  watch([`${paths.src.scripts}/**/*.js`, `!${paths.src.scripts}/vendor/*.js`], () => {
     runSequence('scripts:compile', reload);
   });
 
-  watch(` ${paths.src.scripts}/vendor/*.js`, () => {
+  watch(`${paths.src.scripts}/vendor/*.js`, () => {
     runSequence('scripts:copy', reload);
   });
 });

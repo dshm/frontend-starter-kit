@@ -1,5 +1,6 @@
 import gulp from 'gulp';
 import uglify from 'gulp-uglify';
+import plumber from 'gulp-plumber';
 import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 import browserify from 'browserify';
@@ -15,9 +16,6 @@ gulp.task('scripts:compile', () => {
   }).transform(babel);
   return bundler
     .bundle()
-    .on('error', (err) => {
-      this.emit('end');
-    })
     .pipe(source('app.js'))
     .pipe(buffer())
     .pipe(uglify())
@@ -27,6 +25,9 @@ gulp.task('scripts:compile', () => {
 gulp.task('scripts:copy', () => {
   return gulp
     .src(`${paths.src.scripts}/vendor/*.js`)
+    .pipe(plumber({
+      errorHandler
+    }))
     .pipe(uglify())
     .pipe(gulp.dest(`${paths.dist.scripts}/vendor`));
 });
