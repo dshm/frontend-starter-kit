@@ -6,6 +6,7 @@ gulp.task('default', () => {
     [
       'png-sprite',
       'svg-sprite',
+      'fonts',
       'markup',
       'scss',
       'scripts:compile',
