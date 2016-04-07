@@ -10,14 +10,16 @@ export default {
     images: './app/images',
     svg: './app/svg',
     scripts: './app/scripts',
-    static: './app/data'
+    static: './app/data',
+    fonts: './app/fonts'
   },
 
   dist: {
     styles: './dist/css',
     images: './dist/images',
     scripts: './dist/js',
-    static: './dist/data'
+    static: './dist/data',
+    fonts: './dist/fonts'
   },
 
   inline: {

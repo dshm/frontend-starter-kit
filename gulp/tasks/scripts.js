@@ -26,7 +26,7 @@ gulp.task('scripts:compile', () => {
 
 gulp.task('scripts:copy', () => {
   return gulp
-    .src(`${paths.src.scripts}/vendor/*.js`)
+    .src(`${paths.src.scripts}/vendor/**/*`)
     .pipe(plumber({
       errorHandler
     }))

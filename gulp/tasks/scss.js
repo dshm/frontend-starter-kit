@@ -8,18 +8,13 @@ import stripCssComments from 'gulp-strip-css-comments';
 import uncss from 'gulp-uncss';
 import errorHandler from '../utils/errorHandler';
 import paths from '../paths';
-import {
-  ignoreOptions
-} from '../../uncss.json';
-import {
-  browsers
-} from '../../browsers.json';
+import { ignoreOptions } from '../../uncss.json';
+import { browsers } from '../../browsers.json';
 
 
 const ignoreSettings = ignoreOptions.split(' ').map((element) => {
   return new RegExp(element);
 });
-
 
 gulp.task('scss', () => {
   return gulp

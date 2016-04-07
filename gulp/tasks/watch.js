@@ -27,19 +27,23 @@ gulp.task('watch', () => {
     runSequence('markup', reload);
   });
 
-  watch(`${paths.src.static}/**/*`, () => {
+  watch(`${paths.src.static}/**/*.{png,jpg,gif}`, () => {
     runSequence('static', reload);
   });
 
-  watch(`${paths.src.images}/*.*`, () => {
+  watch(`${paths.src.fonts}/**/*`, () => {
+    runSequence('fonts', reload);
+  });
+
+  watch(`${paths.src.images}/**/*.{png,jpg,gif}`, () => {
     runSequence('images', reload);
   });
 
-  watch([`${paths.src.scripts}/**/*.js`, `!${paths.src.scripts}/vendor/*.js`], () => {
+  watch([`${paths.src.scripts}/**/*.js`, `!${paths.src.scripts}/vendor/**/*`], () => {
     runSequence('scripts:compile', reload);
   });
 
-  watch(`${paths.src.scripts}/vendor/*.js`, () => {
+  watch(`${paths.src.scripts}/vendor/**/*`, () => {
     runSequence('scripts:copy', reload);
   });
 });
