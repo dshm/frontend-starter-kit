@@ -1,3 +1,6 @@
 {
-    "markup": "html"
+  "markup": "html",
+  "env": {
+    "uglify": true
+  }
 }
