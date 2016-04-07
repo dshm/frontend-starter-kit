@@ -27,7 +27,7 @@ gulp.task('watch', () => {
     runSequence('markup', reload);
   });
 
-  watch(`${paths.src.static}/**/*`, () => {
+  watch(`${paths.src.static}/**/*.{png,jpg,gif}`, () => {
     runSequence('static', reload);
   });
 
@@ -35,7 +35,7 @@ gulp.task('watch', () => {
     runSequence('fonts', reload);
   });
 
-  watch(`${paths.src.images}/*`, () => {
+  watch(`${paths.src.images}/**/*.{png,jpg,gif}`, () => {
     runSequence('images', reload);
   });
 

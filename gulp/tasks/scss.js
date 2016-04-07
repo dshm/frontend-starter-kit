@@ -16,7 +16,6 @@ const ignoreSettings = ignoreOptions.split(' ').map((element) => {
   return new RegExp(element);
 });
 
-
 gulp.task('scss', () => {
   return gulp
     .src(`${paths.src.styles}/index.scss`)
