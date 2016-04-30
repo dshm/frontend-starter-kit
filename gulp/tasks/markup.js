@@ -9,6 +9,7 @@ import prettify from 'gulp-html-prettify';
 import errorHandler from '../utils/errorHandler';
 import paths from '../paths';
 import { markup } from '../../options.json';
+import nunjucksRender from 'gulp-nunjucks-render';
 
 const data = {
   timestamp: new Date()
@@ -22,13 +23,19 @@ gulp.task('markup', () => {
     .pipe(plumber({
       errorHandler
     }))
-    .pipe(gulpif(markup === 'jade', cached('jade')))
     .pipe(gulpif(global.watch, inheritance({
       basedir: paths.baseSrc
     })))
-    .pipe(gulpif(markup === 'jade', jade({
-      data
-    })))
+    .pipe(gulpif(
+      markup === 'jade',
+      jade({
+        data
+      }),
+      nunjucksRender({
+        path: paths.src.layouts
+      })
+    ))
+    .pipe(cached())
     .pipe(prettify({
       brace_style: 'expand',
       indent_size: 2,

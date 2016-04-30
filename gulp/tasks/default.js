@@ -15,7 +15,6 @@ gulp.task('default', () => {
       'static'
     ],
     'livereload',
-    'watch',
-    'open-browser'
+    'watch'
   );
 });

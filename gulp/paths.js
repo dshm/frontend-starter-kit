@@ -6,11 +6,12 @@ export default {
     styles: './app/scss',
     spritecss: './app/scss/sprites',
     pngsprite: './app/png-sprite',
-    svgsprite: './app/png-sprite',
+    svgsprite: './app/svg-sprite',
     images: './app/images',
     svg: './app/svg',
     scripts: './app/scripts',
     static: './app/data',
+    layouts: './app/layouts',
     fonts: './app/fonts'
   },
 

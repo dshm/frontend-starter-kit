@@ -8,9 +8,7 @@ export default (error) => {
     ''
   ].join('\n'));
 
-  // Run with `--beep`
   if (gutil.env.beep) {
     gutil.beep();
   }
-
-};
+}

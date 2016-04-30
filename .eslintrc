@@ -14,6 +14,7 @@
   },
   "rules": {
     "arrow-body-style": [2, "always"],
+    "react/jsx-first-prop-new-line": 0,
     "no-debugger": 1,
     "comma-dangle": [2, "never"],
     "react/prefer-stateless-function": 0,

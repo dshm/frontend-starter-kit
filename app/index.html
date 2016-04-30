@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
-    <link href="/css/index.css" rel="stylesheet">
-    <script src="/js/vendor/modernizr.js"></script>
-  </head>
+  {% include 'head.html' %}
 
   <body>
-    <div class="wrapper"></div>
 
+    <div class="wrapper"></div>
     <div class="load"></div>
     <div class="location"></div>
-    <script src="/js/app.js"></script>
+
+    {% include 'js.html' %}
+
   </body>
 
 </html>

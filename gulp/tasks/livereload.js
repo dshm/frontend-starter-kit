@@ -6,14 +6,12 @@ import paths from '../paths';
 gulp.task('livereload', () => {
   browserSync.init({
     files: [`${paths.baseDist}/**/*`],
-    open: !!gutil.env.open,
+    open: 'local',
     reloadOnRestart: true,
     port: gutil.env.port || 3000,
     server: {
-      baseDir: [
-        `${paths.dist.images}`,
-        `${paths.baseDist}`
-      ],
+      baseDir: `${paths.baseDist}`,
+      index: "index.html",
       directory: false
     },
     tunnel: !!gutil.env.tunnel
