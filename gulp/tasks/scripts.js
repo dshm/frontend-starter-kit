@@ -9,7 +9,9 @@ import errorHandler from '../utils/errorHandler';
 import gutil from 'gulp-util';
 import paths from '../paths';
 import cached from 'gulp-cached';
+import gulpif from 'gulp-if';
 
+let env = gutil.env.env ? gutil.env.env : 'dev';
 gulp.task('scripts:compile', () => {
   const bundler = browserify(`${paths.src.scripts}/index.js`, {
     debug: true,
@@ -24,7 +26,7 @@ gulp.task('scripts:compile', () => {
     })
     .pipe(source('app.js'))
     .pipe(buffer())
-    .pipe(uglify())
+    .pipe(gulpif(env!=='dev', uglify()))
     .pipe(gulp.dest(paths.dist.scripts));
 });
 
@@ -35,6 +37,6 @@ gulp.task('scripts:copy', () => {
     .pipe(plumber({
       errorHandler
     }))
-    .pipe(uglify())
+    .pipe(gulpif(env!=='dev', uglify()))
     .pipe(gulp.dest(`${paths.dist.scripts}/vendor`));
 });

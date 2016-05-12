@@ -8,6 +8,7 @@ gulp.task('default', () => {
       'svg-sprite',
       'fonts',
       'markup',
+      'markup-menu',
       'scss',
       'scripts:compile',
       'scripts:copy',
