@@ -1,0 +1,28 @@
+{
+  "name": "front-end-developer-kit",
+  "description": "Front-End developer kit(es2015,sass,sprites,optimization)",
+  "main": "index.js",
+  "authors": [
+    "dshm"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "es2015",
+    "sass",
+    "markup",
+    "jade",
+    "front-end"
+  ],
+  "homepage": "https://github.com/dshm/frontend-starter-kit",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jcf": "^1.2.3"
+  }
+}

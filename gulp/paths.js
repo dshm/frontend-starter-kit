@@ -4,6 +4,7 @@ export default {
 
   src: {
     styles: './app/scss',
+    components: './app/components',
     spritecss: './app/scss/sprites',
     pngsprite: './app/png-sprite',
     svgsprite: './app/svg-sprite',
@@ -16,6 +17,7 @@ export default {
   },
 
   dist: {
+    components: './dist/components',
     styles: './dist/css',
     images: './dist/images',
     scripts: './dist/js',

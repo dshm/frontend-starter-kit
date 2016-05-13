@@ -11,7 +11,7 @@ import paths from '../paths';
 import cached from 'gulp-cached';
 import gulpif from 'gulp-if';
 
-let env = gutil.env.env ? gutil.env.env : 'dev';
+const env = gutil.env.env ? gutil.env.env : 'dev';
 gulp.task('scripts:compile', () => {
   const bundler = browserify(`${paths.src.scripts}/index.js`, {
     debug: true,
