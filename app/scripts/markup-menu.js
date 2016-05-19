@@ -28,8 +28,8 @@ module.exports = function(document) {
   let xhr = new XMLHttpRequest();
   xhr.open('GET', '/js/vendor/files.json', true);
   xhr.send();
-  xhr.addEventListener('readystatechange', function(){
-    if (xhr.readyState!==4) return;    
+  xhr.addEventListener('readystatechange', function() {
+    if (xhr.readyState !== 4) return;
     let pages;
     try {
       pages = JSON.parse(xhr.responseText)

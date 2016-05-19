@@ -5,21 +5,11 @@
   width: 29px;
   height: 32px;
 }
-.icon-location {
-  background-image: url(/images/sprite.png);
-  background-position: -34px 0px;
-  width: 10px;
-  height: 15px;
-}
 
 @media (-webkit-min-device-pixel-ratio: 2),
        (min-resolution: 192dpi) {
   .icon-load {
     background-image: url(/images/sprite@2x.png);
-    background-size: 44px 32px;
-  }
-  .icon-location {
-    background-image: url(/images/sprite@2x.png);
-    background-size: 44px 32px;
+    background-size: 29px 32px;
   }
 }
