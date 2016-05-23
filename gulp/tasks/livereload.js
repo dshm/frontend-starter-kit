@@ -5,7 +5,7 @@ import paths from '../paths';
 
 gulp.task('livereload', () => {
   browserSync.init({
-    files: [`${paths.baseDist}/**/*`],
+    files: [`${paths.baseDist}/**/*`, '!./.idea/**/*'],
     open: 'local',
     reloadOnRestart: true,
     port: gutil.env.port || 3000,
