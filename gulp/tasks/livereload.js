@@ -14,6 +14,11 @@ gulp.task('livereload', () => {
       index: "index.html",
       directory: false
     },
+    ghostMode: {
+      clicks: false,
+      forms: false,
+      scroll: false
+    },
     tunnel: !!gutil.env.tunnel
   })
 });
