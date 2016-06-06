@@ -23,6 +23,7 @@
     "tests"
   ],
   "dependencies": {
-    "jcf": "^1.2.3"
+    "jcf": "https://github.com/w3co/jcf.git#^1.2.3",
+    "slick-carousel": "https://github.com/kenwheeler/slick.git#^1.6.0"
   }
 }

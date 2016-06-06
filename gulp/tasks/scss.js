@@ -5,16 +5,16 @@ import postcss from 'gulp-postcss';
 import flexfixes from 'postcss-flexbugs-fixes';
 import autoprefixer from 'gulp-autoprefixer';
 import stripCssComments from 'gulp-strip-css-comments';
-import uncss from 'gulp-uncss';
 import errorHandler from '../utils/errorHandler';
 import paths from '../paths';
-import { ignoreOptions } from '../../uncss.json';
 import { browsers } from '../../browsers.json';
+// import { ignoreOptions } from '../../uncss.json';
+// import uncss from 'gulp-uncss';
 
 
-const ignoreSettings = ignoreOptions.split(' ').map((element) => {
-  return new RegExp(element);
-});
+// const ignoreSettings = ignoreOptions.split(' ').map((element) => {
+//   return new RegExp(element);
+// });
 
 gulp.task('scss', () => {
   return gulp
@@ -39,9 +39,9 @@ gulp.task('scss', () => {
     .pipe(postcss([
       flexfixes()
     ]))
-    .pipe(uncss({
-      ignore: ignoreSettings,
-      html: [`${paths.baseDist}/*.html`]
-    }))
+    // .pipe(uncss({
+    //   ignore: ignoreSettings,
+    //   html: [`${paths.baseDist}/*.html`]
+    // }))
     .pipe(gulp.dest(paths.dist.styles));
 });
