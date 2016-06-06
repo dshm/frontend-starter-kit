@@ -9,7 +9,6 @@ import cached from 'gulp-cached';
 gulp.task('png-sprite', () => {
   const sprite = gulp
     .src(`${paths.src.pngsprite}/*`)
-    .pipe(cached())
     .pipe(plumber({
       errorHandler
     }))
