@@ -1,9 +1,7 @@
 import gulp from 'gulp';
 import watch from 'gulp-watch';
 import runSequence from 'run-sequence';
-import {
-  reload
-} from 'browser-sync';
+import { reload } from 'browser-sync';
 import paths from '../paths';
 
 gulp.task('watch', () => {

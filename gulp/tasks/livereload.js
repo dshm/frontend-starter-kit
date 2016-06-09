@@ -5,7 +5,15 @@ import paths from '../paths';
 
 gulp.task('livereload', () => {
   browserSync.init({
-    files: [`${paths.baseDist}/**/*`, '!./.idea/**/*'],
+    files: [{
+      match: [`${paths.baseDist}/**/*`, '!./.idea/**/*'],
+      fn: (event, file) => {
+        /** Custom event handler **/
+      },
+      options: {
+        ignored: '*.css.map'
+      }
+    }],
     open: 'local',
     reloadOnRestart: true,
     port: gutil.env.port || 3000,
