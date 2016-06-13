@@ -1,6 +1,6 @@
-module.exports = function(document) {
-  let nav = document.createElement('div');
-  let style = document.createElement('style');
+export function markupMenu(document) {
+  const nav = document.createElement('div');
+  const style = document.createElement('style');
   nav.className = 'helper-nav';
   style.innerHTML =
     `.helper-nav a:hover {
@@ -25,31 +25,31 @@ module.exports = function(document) {
       boxShadow: 0 0 40px 0 rgba(0,0,0,.2);
     }`;
   document.head.appendChild(style);
-  let xhr = new XMLHttpRequest();
+  const xhr = new XMLHttpRequest();
   xhr.open('GET', '/js/vendor/files.json', true);
   xhr.send();
-  xhr.addEventListener('readystatechange', function() {
+  xhr.addEventListener('readystatechange', () => {
     if (xhr.readyState !== 4) return;
     let pages;
     try {
       pages = JSON.parse(xhr.responseText)
     } catch (e) {
-      console.log('env is production');
+      console.warn('env is production');
       return;
-    };
+    }
     for (let i = 0; i < pages.length; i++) {
       nav.innerHTML += `<a href="/${pages[i]}">${pages[i]}</a>`;
-    };
+    }
     document.body.appendChild(nav);
     let flag = localStorage.getItem('flag') ? JSON.parse(localStorage.getItem('flag')) : false;
-    let display = flag ? 'block' : 'none';
+    const display = flag ? 'block' : 'none';
     nav.style.display = display;
-    document.addEventListener('keyup', function(e) {
-      if (e.ctrlKey && e.keyCode == '88') {
+    document.addEventListener('keyup', (e) => {
+      if (e.ctrlKey && e.keyCode === 88) {
         flag ? nav.style.display = 'none' : nav.style.display = 'block';
         flag = !flag;
         localStorage.setItem('flag', flag);
       }
     });
   });
-};
+}
