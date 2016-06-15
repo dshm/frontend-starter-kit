@@ -20,8 +20,10 @@ export default {
     components: './dist/components',
     styles: './dist/css',
     images: './dist/images',
+    optimizedImg: './dist/images-optimized',
     scripts: './dist/js',
     static: './dist/data',
+    optimizedData: './dist/data-optimized',
     fonts: './dist/fonts'
   },
 

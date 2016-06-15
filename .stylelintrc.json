@@ -13,13 +13,13 @@
         "block-no-empty": true,
         "block-opening-brace-newline-after": "always-multi-line",
         "block-opening-brace-space-after": "always-single-line",
-        "block-opening-brace-space-before": "always",
+        "block-opening-brace-space-before": "always-single-line",
         "color-hex-case": "lower",
         "color-hex-length": "short",
         "color-no-invalid-hex": true,
-        "comment-empty-line-before": ["never", {
-            "except": ["first-nested"],
-            "ignore": ["stylelint-commands","between-comments"]
+        "comment-empty-line-before": ["always", {
+            "except": ["all-nested"],
+            "ignore": ["stylelint-commands"]
         }],
         "comment-whitespace-inside": "always",
         "declaration-bang-space-after": "never",
