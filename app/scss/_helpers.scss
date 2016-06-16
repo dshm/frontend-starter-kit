@@ -1,0 +1,28 @@
+@mixin initBordered {
+  @for $i from 1 through 4 {
+    .border-#{$i} {
+      position: absolute;
+    }
+  }
+  .border-1,
+  .border-3 {
+    width: 0;
+  }
+  .border-2,
+  .border-4 {
+    height: 0;
+  }
+  .bordered {
+    position: relative;
+    &.animated {
+      > .border-1,
+      > .border-3 {
+        width: 100%;
+      }
+      > .border-2,
+      > .border-4 {
+        height: 100%;
+      }
+    }
+  }
+}

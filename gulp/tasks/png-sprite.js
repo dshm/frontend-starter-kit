@@ -4,7 +4,6 @@ import errorHandler from '../utils/errorHandler';
 import spritesmith from 'gulp.spritesmith';
 import stripCssComments from 'gulp-strip-css-comments';
 import paths from '../paths';
-import cached from 'gulp-cached';
 
 gulp.task('png-sprite', () => {
   const sprite = gulp

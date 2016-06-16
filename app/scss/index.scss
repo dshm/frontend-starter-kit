@@ -1,11 +1,20 @@
 //normalize
 @import "normalize";
 
+//reset, uncomment if you need
+// @import "reset";
+
 //variable
 @import "variable";
 
+//fonts
+@import "fonts";
+
 //mixins
 @import "mixins";
+
+//helper classes
+@import "helpers";
 
 //extends
 @import "extends";

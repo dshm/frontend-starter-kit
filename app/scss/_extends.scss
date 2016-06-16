@@ -4,9 +4,23 @@
   padding: 0;
 }
 .clearfix {
-  &:after {
+  &::after {
     content: '';
     display: block;
     clear: both;
+  }
+}
+%pseudo {
+  content: '';
+  position: absolute;
+  display: block;
+}
+%before-vam {
+  &::before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    width: 0;
   }
 }

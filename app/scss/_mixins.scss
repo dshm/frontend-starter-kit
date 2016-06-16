@@ -1,0 +1,37 @@
+@mixin response($size) {
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin response-min($size) {
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin response-range($min, $max) {
+  @media only screen and (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin retina {
+  @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) {
+    @content;
+  }
+}
+
+@mixin bordered($size: 1px, $bgc: #000) {
+  > .border-1,
+  > .border-3 {
+    height: $size;
+    background-color: $bgc;
+  }
+  > .border-2,
+  > .border-4 {
+    width: $size;
+    background-color: $bgc;
+  }
+}
