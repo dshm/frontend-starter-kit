@@ -4,7 +4,6 @@ import plumber from 'gulp-plumber';
 import errorHandler from '../utils/errorHandler';
 import svgsprite from 'gulp-svg-sprite';
 import paths from '../paths';
-import cached from 'gulp-cached';
 
 const config = {
   shape: {
@@ -24,7 +23,6 @@ const config = {
 gulp.task('svg-sprite', () => {
   return gulp
     .src(`${paths.src.svgsprite}/*.svg`)
-    .pipe(cached())
     .pipe(plumber({
       errorHandler
     }))
