@@ -34,7 +34,7 @@ export function markupMenu(document) {
     try {
       pages = JSON.parse(xhr.responseText)
     } catch (e) {
-      console.warn('env is production');
+      console.warn('Art Lemon production');
       return;
     }
     for (let i = 0; i < pages.length; i++) {

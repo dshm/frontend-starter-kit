@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+  &::after,
+  &::before {
+    box-sizing: border-box;
+  }
+}
+input,
+textarea,
+keygen,
+select,
+button,
+a {
+  font-family: inherit;
+  outline-width: 0;
+}
+ul,
+li,
+ol,
+p {
+  margin: 0;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    margin: 0;
+  }
+}

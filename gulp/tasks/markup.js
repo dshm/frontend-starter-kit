@@ -11,14 +11,14 @@ import paths from '../paths';
 import { markup } from '../../options.json';
 import nunjucksRender from 'gulp-nunjucks-render';
 
-const data = {
-  timestamp: new Date()
+const jadeOptions = {
+  pretty: '  '
 };
 
 gulp.task('markup', () => {
   return gulp
     .src(
-      gulpif(markup === 'jade', `${paths.baseSrc}/jade/**/*.jade`, `${paths.baseSrc}/*.html`)
+      gulpif(markup === 'jade', `${paths.baseSrc}/jade/**/!(_)*.jade`, `${paths.baseSrc}/*.html`)
     )
     .pipe(plumber({
       errorHandler
@@ -29,7 +29,7 @@ gulp.task('markup', () => {
     .pipe(gulpif(
       markup === 'jade',
       jade({
-        data
+        jadeOptions
       }),
       nunjucksRender({
         path: paths.src.layouts
