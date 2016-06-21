@@ -7,7 +7,7 @@ import paths from '../paths';
 
 gulp.task('png-sprite', () => {
   const sprite = gulp
-    .src(`${paths.src.pngsprite}/*`)
+    .src(`${paths.src.pngsprite}/*.png`)
     .pipe(plumber({
       errorHandler
     }))
