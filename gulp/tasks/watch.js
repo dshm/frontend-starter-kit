@@ -20,7 +20,7 @@ gulp.task('watch', () => {
   });
 
   watch(`${paths.baseSrc}/jade/**/*.jade`, () => {
-    runSequence('markup', reload);
+    runSequence(['markup', 'markup-menu'], reload);
   });
 
   watch([`${paths.baseSrc}/*.html`, `${paths.src.layouts}/*.html`], () => {
