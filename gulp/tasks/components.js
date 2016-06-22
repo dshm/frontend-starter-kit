@@ -2,9 +2,9 @@ import gulp from 'gulp';
 import paths from '../paths';
 import cached from 'gulp-cached';
 
-gulp.task('static', () => {
+gulp.task('components', () => {
   return gulp
-    .src(`${paths.src.static}/**/*.{png,jpg,gif,svg}`)
+    .src(`${paths.src.components}/**/*`)
     .pipe(cached())
-    .pipe(gulp.dest(paths.dist.static));
+    .pipe(gulp.dest(paths.dist.components));
 });

@@ -31,6 +31,10 @@ gulp.task('watch', () => {
     runSequence('static', reload);
   });
 
+  watch(`${paths.src.components}/**/*.`, () => {
+    runSequence('components', reload);
+  });
+
   watch(`${paths.src.fonts}/**/*`, () => {
     runSequence('fonts', reload);
   });

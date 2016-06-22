@@ -13,6 +13,7 @@ gulp.task('default', () => {
       'scripts:compile',
       'scripts:copy',
       'images',
+      'components',
       'static'
     ],
     'livereload',
