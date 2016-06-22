@@ -11,7 +11,7 @@ gulp.task('watch', () => {
     runSequence('scss', reload.bind(null, `${paths.dist.styles}/index.css`));
   });
 
-  watch(`${paths.src.pngsprite}/*`, () => {
+  watch(`${paths.src.pngsprite}/*.png`, () => {
     runSequence('png-sprite', reload);
   });
 
@@ -20,7 +20,7 @@ gulp.task('watch', () => {
   });
 
   watch(`${paths.baseSrc}/jade/**/*.jade`, () => {
-    runSequence('markup', reload);
+    runSequence(['markup', 'markup-menu'], reload);
   });
 
   watch([`${paths.baseSrc}/*.html`, `${paths.src.layouts}/*.html`], () => {

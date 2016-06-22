@@ -13,7 +13,8 @@ export default {
     scripts: './app/scripts',
     static: './app/data',
     layouts: './app/layouts',
-    fonts: './app/fonts'
+    fonts: './app/fonts',
+    jade: './app/jade'
   },
 
   dist: {
