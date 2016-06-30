@@ -23,7 +23,7 @@ gulp.task('watch', () => {
     runSequence(['markup', 'markup-menu'], reload);
   });
 
-  watch([`${paths.baseSrc}/*.html`, `${paths.src.layouts}/*.html`], () => {
+  watch([`${paths.baseSrc}/*.html`, `${paths.src.layouts}/**/*.html`], () => {
     runSequence(['markup', 'markup-menu'], reload);
   });
 
