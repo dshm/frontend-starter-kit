@@ -33,7 +33,7 @@ gulp.task('optimize-data-folder', () => {
 });
 
 
-gulp.task('optimize-image', () => {
+gulp.task('optimize-images', () => {
   runSequence(
     'optimize-images-folder',
     'optimize-data-folder'

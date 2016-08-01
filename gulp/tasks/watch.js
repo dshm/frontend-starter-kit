@@ -23,12 +23,16 @@ gulp.task('watch', () => {
     runSequence(['markup', 'markup-menu'], reload);
   });
 
-  watch([`${paths.baseSrc}/*.html`, `${paths.src.layouts}/*.html`], () => {
+  watch([`${paths.baseSrc}/*.html`, `${paths.src.layouts}/**/*.html`], () => {
     runSequence(['markup', 'markup-menu'], reload);
   });
 
   watch(`${paths.src.static}/**/*.{png,jpg,gif,svg}`, () => {
     runSequence('static', reload);
+  });
+
+  watch(`${paths.src.components}/**/*.`, () => {
+    runSequence('components', reload);
   });
 
   watch(`${paths.src.fonts}/**/*`, () => {
