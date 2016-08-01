@@ -20,6 +20,13 @@ ol,
 p {
   margin: 0;
 }
+input,
+textarea {
+  border-radius: 0;
+}
+button {
+  padding: 0;
+}
 
 @for $i from 1 through 6 {
   h#{$i} {

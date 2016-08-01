@@ -17,9 +17,9 @@ export function markupMenu(document) {
       position: fixed;
       bottom: 0;
       right: 0;
-      background-color: '#fff';
+      background-color: #fff;
       font-family: monospace;
-      z-index: 5;
+      z-index: 9999;
       border: 1px solid #000;
       padding: 3px;
       boxShadow: 0 0 40px 0 rgba(0,0,0,.2);
