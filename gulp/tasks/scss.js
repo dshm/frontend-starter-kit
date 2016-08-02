@@ -14,7 +14,7 @@ import gulpif from 'gulp-if';
 import cssbeautify from 'gulp-cssbeautify';
 import { ignoreOptions } from '../../uncss.json';
 import uncss from 'gulp-uncss';
-
+import glob from 'gulp-sass-glob';
 
 const ignoreSettings = ignoreOptions.split(' ').map((element) => {
   return new RegExp(element);
@@ -29,6 +29,7 @@ gulp.task('scss', () => {
       errorHandler
     }))
     .pipe(gulpif(env === 'dev', sourcemaps.init()))
+    .pipe(glob())
     .pipe(scss().on('error', scss.logError))
     .pipe(gulpif(env !== 'dev', stripCssComments()))
     .pipe(autoprefixer({

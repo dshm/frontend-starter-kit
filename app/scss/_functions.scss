@@ -1,0 +1,7 @@
+@function img-url($url) {
+  @return url('/images/'+$url);
+}
+
+@function data-url($url) {
+  @return url('/data/'+$url);
+}
