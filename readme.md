@@ -6,11 +6,11 @@
 ##Getting Started
 `$ git clone https://github.com/dshm/frontend-starter-kit.git`
 
-You must be globally installed packages *gulp* and *bower*
+You must be globally installed *gulp* and *bower* packages
 
 To set the type in the console `npm install gulp bower -g`
 
-##Install dependencies, and check to see it works
+##Install dependencies, and check if it works
 ######step 1
 **cd 'project_folder'**
 ######step 2
