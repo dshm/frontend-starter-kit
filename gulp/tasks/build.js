@@ -1,8 +1,9 @@
 import gulp from 'gulp';
 import runSequence from 'run-sequence';
 
-gulp.task('default', () => {
+gulp.task('build', () => {
   runSequence(
+      'clean',
     [
       'png-sprite',
       'svg-sprite',
@@ -16,8 +17,6 @@ gulp.task('default', () => {
       'components',
       'static',
       'favicon'
-    ],
-    'livereload',
-    'watch'
+    ]
   );
 });

@@ -5,7 +5,6 @@ export default {
   src: {
     styles: './app/scss',
     components: './app/components',
-    spritecss: './app/scss/sprites',
     pngsprite: './app/png-sprite',
     svgsprite: './app/svg-sprite',
     images: './app/images',
