@@ -32,6 +32,7 @@ export function markupMenu(document) {
       font-family: monospace;
       z-index: 9999;
       text-align: right;
+      font-size: 14px;
     }
     .helper-nav {
       text-align: left;
@@ -39,6 +40,12 @@ export function markupMenu(document) {
       border: 1px solid #000;
       padding: 3px;
       boxShadow: 0 0 40px 0 rgba(0,0,0,.2);
+    }
+    @media all and (max-width:1024px) {
+      .helper-nav {
+        height: 160px;
+        overflow-y: scroll;
+      }
     }`;
   document.head.appendChild(style);
   const xhr = new XMLHttpRequest();
@@ -54,14 +61,22 @@ export function markupMenu(document) {
       return;
     }
     for (let i = 0; i < pages.length; i++) {
-      nav.innerHTML += `<a href="/${pages[i]}">${pages[i]}</a>`;
+      nav.innerHTML += `<a href="/${pages[i]}">${i+1}-${pages[i]}</a>`;
     }
     document.body.appendChild(wrapper);
     let flag = localStorage.getItem('flag') ? JSON.parse(localStorage.getItem('flag')) : false;
     const display = flag ? 'block' : 'none';
+    const btnText = flag ? 'Close pages list' : 'Open pages list';
     nav.style.display = display;
+    button.innerHTML = btnText;
     function toggleNav() {
-      flag ? nav.style.display = 'none' : nav.style.display = 'block';
+      if (flag) {
+        nav.style.display = 'none';
+        button.innerHTML = 'Open pages list';
+      } else {
+        nav.style.display = 'block';
+        button.innerHTML = 'Close pages list';
+      }
       flag = !flag;
       localStorage.setItem('flag', flag);
     }
