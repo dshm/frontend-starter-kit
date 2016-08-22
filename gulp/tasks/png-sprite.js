@@ -23,5 +23,5 @@ gulp.task('png-sprite', () => {
     }));
   sprite.img.pipe(gulp.dest(paths.dist.images));
   sprite.css.pipe(stripCssComments())
-    .pipe(gulp.dest(paths.src.spritecss));
+    .pipe(gulp.dest(paths.src.styles));
 });
