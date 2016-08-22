@@ -40,6 +40,8 @@ export function markupMenu(document) {
       border: 1px solid #000;
       padding: 3px;
       boxShadow: 0 0 40px 0 rgba(0,0,0,.2);
+      max-height: 300px;
+      overflow-y: auto;
     }
     @media all and (max-width:1024px) {
       .helper-nav {

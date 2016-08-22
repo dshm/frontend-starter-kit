@@ -7,14 +7,21 @@ import fs from 'fs';
 const options = {
   markup,
   reg: markup === 'html' ?  /\.(html)$/i : /\.(jade)$/i,
-  path: markup === 'html' ?  paths.baseSrc : paths.src.jade
+  path: markup === 'html' ?  paths.baseSrc : paths.src.jade,
+  excludeReg: /^ajax/i
 }
 
 gulp.task('markup-menu', () => {
   fs.readdir(options.path, (err, files) => {
     const arr = [];
-    const reg = options.reg;
+    const {
+      reg,
+      excludeReg
+    } = options;
     for (let i = 0; i < files.length; i++) {
+      if (excludeReg.test(files[i])) {
+        continue;
+      }
       if (reg.test(files[i])) {
         const fileName = files[i].replace(/\.(html|jade)$/i, '.html');
         arr.push(fileName);
