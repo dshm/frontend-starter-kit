@@ -32,7 +32,6 @@
     "babel-preset-react": "^6.5.0",
     "babelify": "^7.3.0",
     "browser-sync": "^2.12.5",
-    "browserify": "^13.0.0",
     "del": "^2.2.0",
     "eslint": "^2.9.0",
     "eslint-config-airbnb": "^8.0.0",
@@ -72,7 +71,8 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-ftp": "^0.5.0",
     "vinyl-paths": "^2.1.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "webpack": "^1.13.2"
   },
   "dependencies": {
     "react": "^0.14.8",

@@ -44,7 +44,7 @@ gulp.task('watch', () => {
   });
 
   watch([`${paths.src.scripts}/**/*.js`, `!${paths.src.scripts}/vendor/**/*`], () => {
-    runSequence('scripts:compile', reload);
+    runSequence('scripts:compile');
   });
 
   watch(`${paths.src.scripts}/vendor/**/*`, () => {
