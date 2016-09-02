@@ -40,6 +40,8 @@ To set the type in the console `npm install gulp bower -g`
 
 * **gulp zip** - run task which archive folder *dist*
 
+* **gulp email** - run task which convert your css to inline styles in *dist/email* folder
+
 ##Application Structure
 ```
 .
