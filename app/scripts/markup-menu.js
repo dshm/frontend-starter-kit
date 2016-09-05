@@ -62,8 +62,12 @@ export function markupMenu(document) {
       console.warn('Art Lemon production');
       return;
     }
-    for (let i = 0; i < pages.length; i++) {
-      nav.innerHTML += `<a href="/${pages[i]}">${i+1}-${pages[i]}</a>`;
+    if (pages[0]!=='dev') {
+      console.warn('Art Lemon production');
+      return;
+    }
+    for (let i = 1; i < pages.length; i++) {
+      nav.innerHTML += `<a href="/${pages[i]}">${i}-${pages[i]}</a>`;
     }
     document.body.appendChild(wrapper);
     let flag = localStorage.getItem('flag') ? JSON.parse(localStorage.getItem('flag')) : false;

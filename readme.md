@@ -25,6 +25,8 @@ To set the type in the console `npm install gulp bower -g`
 
 **uncss.json** - In this file, you can specify the required ignore ClassNames for [gulp-uncss](https://www.npmjs.com/package/gulp-uncss)
 
+**options.json** - In this file, you can specify your environment `env = "dev"|"prod"`, template language `markup = "html"|"pug"`, and if you need to use uncss `uncss = true|false`
+
 ##Gulp tasks
 * **gulp** - default task which runs the project with the initial settings with browsersync and Livereload
 
@@ -40,6 +42,8 @@ To set the type in the console `npm install gulp bower -g`
 
 * **gulp zip** - run task which archive folder *dist*
 
+* **gulp email** - run task which convert your css to inline styles in *dist/email* folder
+
 ##Application Structure
 ```
 .
@@ -47,7 +51,7 @@ To set the type in the console `npm install gulp bower -g`
 │   └── data
 │   ├── fonts
 │   ├── images
-│   ├── jade
+│   ├── pug
 │   ├── layouts
 │   ├── png-sprite
 │   ├── scripts
@@ -68,5 +72,6 @@ To set the type in the console `npm install gulp bower -g`
 ├── gulp                    
 │   └── tasks
 ├── browsers.json           
-└── uncss.json                   
+├── uncss.json   
+└── options.json                
 ```

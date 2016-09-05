@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import gutil from 'gulp-util';
 import paths from '../paths';
-import { markup } from '../../options.json';
+import { markup, env } from '../../options.json';
 import fs from 'fs';
 
 const options = {
@@ -31,6 +31,7 @@ gulp.task('markup-menu', () => {
     file.on('finish', () => {
       gutil.log(gutil.colors.green('file write finished successfully (markup-menu)'));
     });
+    arr.unshift(env);
     file.write(JSON.stringify(arr));
     file.end();
   });

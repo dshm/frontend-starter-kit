@@ -9,8 +9,8 @@ import gulpif from 'gulp-if';
 import webpackConfig from '../../webpack.config';
 import webpack from 'webpack';
 import { reload } from 'browser-sync';
+import { env } from '../../options';
 
-const env = gutil.env.env ? gutil.env.env : 'dev';
 gulp.task('scripts:compile', () => {
   webpack(webpackConfig, (err, stats) => {
     if (err) {
