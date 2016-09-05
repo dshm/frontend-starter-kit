@@ -36,7 +36,8 @@
     "no-multi-spaces": 0,
     "no-alert": 0,
     "no-undef": 2,
-    "no-unused-vars": [1, {"vars": "local", "args": "none"}]
+    "no-unused-vars": [1, {"vars": "local", "args": "none"}],
+    "no-floating-decimal": 0
   },
   "globals" : {
     "document": false,
