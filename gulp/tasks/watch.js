@@ -19,7 +19,7 @@ gulp.task('watch', () => {
     runSequence('svg-sprite', reload);
   });
 
-  watch(`${paths.baseSrc}/jade/**/*.jade`, () => {
+  watch(`${paths.baseSrc}/pug/**/*.pug`, () => {
     runSequence('markup', 'markup-menu', reload);
   });
 

@@ -6,8 +6,8 @@ import fs from 'fs';
 
 const options = {
   markup,
-  reg: markup === 'html' ?  /\.(html)$/i : /\.(jade)$/i,
-  path: markup === 'html' ?  paths.baseSrc : paths.src.jade,
+  reg: markup === 'html' ?  /\.(html)$/i : /\.(pug)$/i,
+  path: markup === 'html' ?  paths.baseSrc : paths.src.pug,
   excludeReg: /^ajax/i
 }
 
@@ -23,7 +23,7 @@ gulp.task('markup-menu', () => {
         continue;
       }
       if (reg.test(files[i])) {
-        const fileName = files[i].replace(/\.(html|jade)$/i, '.html');
+        const fileName = files[i].replace(/\.(html|pug)$/i, '.html');
         arr.push(fileName);
       }
     }

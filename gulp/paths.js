@@ -13,7 +13,7 @@ export default {
     static: './app/data',
     layouts: './app/layouts',
     fonts: './app/fonts',
-    jade: './app/jade'
+    pug: './app/pug'
   },
 
   dist: {

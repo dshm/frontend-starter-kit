@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import gulpif from 'gulp-if';
 import plumber from 'gulp-plumber';
-import jade from 'gulp-jade';
+import pug from 'gulp-pug';
 import inheritance from 'gulp-jade-inheritance';
 import cached from 'gulp-cached';
 import rename from 'gulp-rename';
@@ -11,14 +11,14 @@ import paths from '../paths';
 import { markup } from '../../options.json';
 import nunjucksRender from 'gulp-nunjucks-render';
 
-const jadeOptions = {
+const pugOptions = {
   pretty: '  '
 };
 
 gulp.task('markup', () => {
   return gulp
     .src(
-      gulpif(markup === 'jade', `${paths.baseSrc}/jade/**/!(_)*.jade`, `${paths.baseSrc}/*.html`)
+      gulpif(markup === 'pug', `${paths.baseSrc}/pug/**/!(_)*.pug`, `${paths.baseSrc}/*.html`)
     )
     .pipe(plumber({
       errorHandler
@@ -27,9 +27,9 @@ gulp.task('markup', () => {
       basedir: paths.baseSrc
     })))
     .pipe(gulpif(
-      markup === 'jade',
-      jade({
-        jadeOptions
+      markup === 'pug',
+      pug({
+        pugOptions
       }),
       nunjucksRender({
         path: paths.src.layouts
@@ -43,7 +43,7 @@ gulp.task('markup', () => {
       indent_inner_html: true,
       preserve_newlines: true
     }))
-    .pipe(gulpif(markup === 'jade', rename({
+    .pipe(gulpif(markup === 'pug', rename({
       dirname: '.'
     })))
     .pipe(gulp.dest(paths.baseDist))
