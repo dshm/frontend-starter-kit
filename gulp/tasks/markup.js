@@ -10,6 +10,9 @@ import errorHandler from '../utils/errorHandler';
 import paths from '../paths';
 import { markup } from '../../options.json';
 import nunjucksRender from 'gulp-nunjucks-render';
+import posthtml from 'gulp-posthtml';
+import imgAutoSize from '../utils/image-auto-size';
+import path from 'path';
 
 const pugOptions = {
   pretty: '  '
@@ -46,5 +49,11 @@ gulp.task('markup', () => {
     .pipe(gulpif(markup === 'pug', rename({
       dirname: '.'
     })))
+    .pipe(posthtml([
+      imgAutoSize({
+        processEmptySize: true,
+        root: paths.baseSrc
+      })
+    ]))
     .pipe(gulp.dest(paths.baseDist))
 });

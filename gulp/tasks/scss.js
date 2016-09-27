@@ -15,7 +15,7 @@ import { ignoreOptions } from '../../uncss.json';
 import uncss from 'gulp-uncss';
 import glob from 'gulp-sass-glob';
 import options from '../../options';
-
+import mqpacker from 'css-mqpacker';
 
 const ignoreSettings = ignoreOptions.split(' ').map((element) => {
   return new RegExp(element);
@@ -44,7 +44,8 @@ gulp.task('scss', () => {
       cascade: false
     }))
     .pipe(postcss([
-      flexfixes()
+      flexfixes(),
+      mqpacker()
     ]))
     .pipe(gulpif(options.uncss === true, uncss({
       ignore: ignoreSettings,
