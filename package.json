@@ -34,7 +34,6 @@
     "babelify": "^7.3.0",
     "bluebird": "^3.4.6",
     "browser-sync": "^2.12.5",
-    "css-mqpacker": "^5.0.1",
     "del": "^2.2.0",
     "eslint": "^2.9.0",
     "eslint-config-airbnb": "^8.0.0",
