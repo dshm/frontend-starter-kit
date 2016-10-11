@@ -2,3 +2,4 @@ node_modules
 dist
 app/components
 npm-debug.log
+app/scripts/files.js

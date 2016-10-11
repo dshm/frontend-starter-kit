@@ -8,7 +8,7 @@ const options = {
   markup,
   reg: markup === 'html' ?  /\.(html)$/i : /\.(pug)$/i,
   path: markup === 'html' ?  paths.baseSrc : paths.src.pug,
-  excludeReg: /^ajax/i
+  excludeReg: /^(ajax|_)/i
 }
 
 gulp.task('markup-menu', () => {
@@ -27,12 +27,9 @@ gulp.task('markup-menu', () => {
         arr.push(fileName);
       }
     }
-    const file = fs.createWriteStream(`${paths.src.scripts}/vendor/files.json`);
-    file.on('finish', () => {
-      gutil.log(gutil.colors.green('file write finished successfully (markup-menu)'));
-    });
+    const file = fs.createWriteStream(`${paths.src.scripts}/files.js`);
     arr.unshift(env);
-    file.write(JSON.stringify(arr));
+    file.write(`export default ${JSON.stringify(arr)}`);
     file.end();
   });
 });

@@ -1,3 +1,5 @@
+import files from './files';
+
 export function markupMenu(document) {
   const nav = document.createElement('div');
   const style = document.createElement('style');
@@ -50,47 +52,34 @@ export function markupMenu(document) {
       }
     }`;
   document.head.appendChild(style);
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', '/js/vendor/files.json', true);
-  xhr.send();
-  xhr.addEventListener('readystatechange', () => {
-    if (xhr.readyState !== 4) return;
-    let pages;
-    try {
-      pages = JSON.parse(xhr.responseText)
-    } catch (e) {
-      console.warn('Art Lemon production');
-      return;
+  if (files[0]!=='dev') {
+    console.warn('Art Lemon production');
+    return;
+  }
+  for (let i = 1; i < files.length; i++) {
+    nav.innerHTML += `<a href="/${files[i]}">${i}-${files[i]}</a>`;
+  }
+  document.body.appendChild(wrapper);
+  let flag = localStorage.getItem('flag') ? JSON.parse(localStorage.getItem('flag')) : false;
+  const display = flag ? 'block' : 'none';
+  const btnText = flag ? 'Close pages list' : 'Open pages list';
+  nav.style.display = display;
+  button.innerHTML = btnText;
+  function toggleNav() {
+    if (flag) {
+      nav.style.display = 'none';
+      button.innerHTML = 'Open pages list';
+    } else {
+      nav.style.display = 'block';
+      button.innerHTML = 'Close pages list';
     }
-    if (pages[0]!=='dev') {
-      console.warn('Art Lemon production');
-      return;
+    flag = !flag;
+    localStorage.setItem('flag', flag);
+  }
+  document.addEventListener('keyup', (e) => {
+    if (e.type === 'keyup' && e.ctrlKey && e.keyCode === 88) {
+      toggleNav();
     }
-    for (let i = 1; i < pages.length; i++) {
-      nav.innerHTML += `<a href="/${pages[i]}">${i}-${pages[i]}</a>`;
-    }
-    document.body.appendChild(wrapper);
-    let flag = localStorage.getItem('flag') ? JSON.parse(localStorage.getItem('flag')) : false;
-    const display = flag ? 'block' : 'none';
-    const btnText = flag ? 'Close pages list' : 'Open pages list';
-    nav.style.display = display;
-    button.innerHTML = btnText;
-    function toggleNav() {
-      if (flag) {
-        nav.style.display = 'none';
-        button.innerHTML = 'Open pages list';
-      } else {
-        nav.style.display = 'block';
-        button.innerHTML = 'Close pages list';
-      }
-      flag = !flag;
-      localStorage.setItem('flag', flag);
-    }
-    document.addEventListener('keyup', (e) => {
-      if (e.type === 'keyup' && e.ctrlKey && e.keyCode === 88) {
-        toggleNav();
-      }
-    });
-    button.addEventListener('click', toggleNav);
   });
+  button.addEventListener('click', toggleNav);
 }
