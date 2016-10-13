@@ -1,0 +1,70 @@
+@mixin response($size) {
+  @media only screen and (max-width: $size){
+    @content;
+  }
+}
+
+@mixin response-min($size) {
+  @media only screen and (min-width: $size){
+    @content;
+  }
+}
+
+@mixin response-range($min, $max) {
+  @media only screen and (min-width: $min) and (max-width: $max){
+    @content;
+  }
+}
+
+@mixin retina {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
+    @content;
+  }
+}
+
+@mixin bordered($size: 1px, $bgc: #000) {
+  > .border-3,
+  > .border-1 {
+    height: $size;
+    background-color: $bgc;
+  }
+  > .border-4,
+  > .border-2 {
+    width: $size;
+    background-color: $bgc;
+  }
+}
+
+@mixin triangle($direction : down, $size: 10px, $color: $black) {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 0;
+  width: 0;
+  @if ($direction == 'up') {
+    border-bottom: $size solid $color;
+    border-left: 1/1.2 * $size solid transparent;
+    border-right: 1/1.2 * $size solid transparent;
+  }
+  @else if ($direction == 'down') {
+    border-top: $size solid $color;
+    border-left: 1/1.2 * $size solid transparent;
+    border-right: 1/1.2 * $size solid transparent;
+  }
+  @else if ($direction == 'left') {
+    border-top: 1/1.2 * $size solid transparent;
+    border-bottom: 1/1.2 * $size solid transparent;
+    border-right: $size solid $color;
+  }
+  @else if ($direction == 'right') {
+    border-top: 1/1.2 * $size solid transparent;
+    border-bottom: 1/1.2 * $size solid transparent;
+    border-left: $size solid $color;
+  }
+}
+
+@mixin textOverflow($overflow: ellipsis){
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: $overflow;
+}

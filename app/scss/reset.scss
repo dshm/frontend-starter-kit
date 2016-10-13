@@ -7,21 +7,21 @@ input[type="search"] {
   }
 }
 * {
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
+a,
+button,
 input,
-textarea,
 keygen,
 select,
-button,
-a {
+textarea {
   font-family: inherit;
   outline-width: 0;
 }
-ul,
 li,
 ol,
-p {
+p,
+ul {
   margin: 0;
 }
 input,
@@ -38,14 +38,14 @@ button {
   background-color: transparent;
 }
 input,
-textarea,
-select {
+select,
+textarea {
   &:-webkit-autofill {
     -webkit-text-fill-color: #333;
     -webkit-box-shadow: 0 0 0 1000px #fff inset;
     transition: background-color 5000s ease-in-out 0s;
-    &:hover,
-    &:focus {
+    &:focus,
+    &:hover {
       -webkit-text-fill-color: #333;
       -webkit-box-shadow: 0 0 0 1000px #fff inset;
       transition: background-color 5000s ease-in-out 0s;
