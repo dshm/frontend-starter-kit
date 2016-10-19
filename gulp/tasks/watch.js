@@ -27,6 +27,10 @@ gulp.task('watch', () => {
     runSequence('markup', 'markup-menu', reload);
   });
 
+  watch([`${paths.baseSrc}/*.php`], () => {
+    runSequence('php-files', reload);
+  });
+
   watch(`${paths.src.static}/**/*.{png,jpg,gif,svg}`, () => {
     runSequence('static', reload);
   });

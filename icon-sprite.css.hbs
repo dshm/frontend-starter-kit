@@ -2,7 +2,7 @@
 {{#content "sprites" mode="replace"}}
 {{#each retina_groups}}
 %icon-{{{name}}} {
-  background-image: url({{{normal.escaped_image}}});
+  background-image: url(..{{{normal.escaped_image}}});
   background-position: {{normal.px.offset_x}} {{normal.px.offset_y}};
   width: {{normal.px.width}};
   height: {{normal.px.height}};
@@ -12,7 +12,7 @@
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 {{#each retina_groups}}
   %icon-{{{name}}} {
-    background-image: url({{{retina.escaped_image}}});
+    background-image: url(..{{{retina.escaped_image}}});
     background-size: {{normal.px.total_width}} {{normal.px.total_height}};
   }
 {{/each}}
