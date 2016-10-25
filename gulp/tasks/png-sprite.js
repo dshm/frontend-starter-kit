@@ -18,7 +18,7 @@ gulp.task('png-sprite', () => {
       imgPath: `${paths.inline.images}/sprite.png`,
       retinaSrcFilter: `${paths.src.pngsprite}/*@2x.png`,
       padding: 5,
-      cssName: '_sprite-png.scss',
+      cssName: 'sprite-png.scss',
       cssTemplate: 'icon-sprite.css.hbs'
     }));
   sprite.img.pipe(gulp.dest(paths.dist.images));
