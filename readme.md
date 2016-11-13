@@ -4,7 +4,7 @@
 * npm ^3.10.0
 
 ##Getting Started
-`$ git clone https://github.com/dshm/frontend-starter-kit.git`
+`$ git clone https://github.com/dshm/markup-framework.git`
 
 You must be globally installed *gulp* and *bower* packages
 
