@@ -1,4 +1,4 @@
-#Front-end developer kit
+#Markup framework
 ##Requirements
 * node ^6.3.0
 * npm ^3.10.0
