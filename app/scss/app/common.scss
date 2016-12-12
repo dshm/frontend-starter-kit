@@ -1,6 +1,12 @@
-body,
-html {
+body {
   height: 100%;
+}
+* {
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+  box-sizing: border-box;
 }
 .wrapper {
   position: absolute;

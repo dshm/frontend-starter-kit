@@ -11,7 +11,7 @@ import ReactDOM from 'react-dom';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { name: '"MARKUP-TOOLS"' };
+    this.state = { name: '"MARKUP-framework"' };
   }
 
   render() {

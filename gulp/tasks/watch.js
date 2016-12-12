@@ -31,7 +31,7 @@ gulp.task('watch', () => {
     runSequence('php-files', reload);
   });
 
-  watch(`${paths.src.static}/**/*.{png,jpg,gif,svg}`, () => {
+  watch(`${paths.src.static}/**/*.{png,jpg,gif,svg,mp4,webm}`, () => {
     runSequence('static', reload);
   });
 
