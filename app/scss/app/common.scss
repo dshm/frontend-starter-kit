@@ -2,8 +2,8 @@ body {
   height: 100%;
 }
 * {
-  &::before,
-  &::after {
+  &::after,
+  &::before {
     box-sizing: border-box;
   }
   box-sizing: border-box;
