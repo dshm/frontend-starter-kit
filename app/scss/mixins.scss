@@ -22,6 +22,21 @@
   }
 }
 
+@mixin desktop-hover() {
+  @media only screen and (min-width: 1025px) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin desktop-properties() {
+  @media only screen and (min-width: 1025px) {
+    @content;
+  }
+}
+
+
 @mixin bordered($size: 1px, $bgc: #000) {
   > .border-3,
   > .border-1 {
