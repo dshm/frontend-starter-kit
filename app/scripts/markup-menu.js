@@ -1,5 +1,4 @@
 import files from './files';
-
 export function markupMenu(document) {
   const nav = document.createElement('div');
   const style = document.createElement('style');
@@ -8,11 +7,10 @@ export function markupMenu(document) {
   wrapper.appendChild(button);
   wrapper.appendChild(nav);
   wrapper.className = 'helper-nav-wrapper';
-  button.innerHTML="Open pages list";
+  button.innerHTML = "Open pages list";
   button.className = 'helper-nav-button';
   nav.className = 'helper-nav';
-  style.innerHTML =
-    `.helper-nav a:hover {
+  style.innerHTML = `.helper-nav a:hover {
       color:#fff;
       background-color:#000;
     }
@@ -52,7 +50,7 @@ export function markupMenu(document) {
       }
     }`;
   document.head.appendChild(style);
-  if (files[0]!=='dev') {
+  if (files[0] !== 'dev') {
     console.warn('Art Lemon production');
     return;
   }
@@ -65,6 +63,7 @@ export function markupMenu(document) {
   const btnText = flag ? 'Close pages list' : 'Open pages list';
   nav.style.display = display;
   button.innerHTML = btnText;
+
   function toggleNav() {
     if (flag) {
       nav.style.display = 'none';

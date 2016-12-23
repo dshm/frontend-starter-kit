@@ -1,0 +1,14 @@
+
+%icon-logo {
+  background-image: url(../images/sprite.png);
+  background-position: 0px 0px;
+  width: 169px;
+  height: 171px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  %icon-logo {
+    background-image: url(../images/sprite@2x.png);
+    background-size: 169px 171px;
+  }
+}
