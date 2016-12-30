@@ -15,20 +15,20 @@ import { ignoreOptions } from '../../uncss.json';
 import uncss from 'gulp-uncss';
 import glob from 'gulp-sass-glob';
 import options from '../../options';
-
-const ignoreSettings = ignoreOptions.split(' ').map((element) => {
-  return new RegExp(element);
-});
-
+import cleanCSS from 'gulp-clean-css';
+const ignoreSettings = ignoreOptions.split(' ')
+  .map((element) => {
+    return new RegExp(element);
+  });
 gulp.task('scss', () => {
-  return gulp
-    .src(`${paths.src.styles}/index.scss`)
+  return gulp.src(`${paths.src.styles}/index.scss`)
     .pipe(plumber({
       errorHandler
     }))
     .pipe(gulpif(options.env === 'dev', sourcemaps.init()))
     .pipe(glob())
-    .pipe(scss().on('error', scss.logError))
+    .pipe(scss()
+      .on('error', scss.logError))
     .pipe(gulpif(options.env !== 'dev', stripCssComments()))
     .pipe(autoprefixer({
       browsers: [
@@ -49,12 +49,12 @@ gulp.task('scss', () => {
       ignore: ignoreSettings,
       html: [`${paths.baseDist}/*.html`]
     })))
-
-  .pipe(gulpif(options.env === 'dev', sourcemaps.write('.')))
-    .pipe(gulpif(options.env !== 'dev', cssbeautify({
+    .pipe(gulpif(options.env === 'dev', sourcemaps.write('.')))
+    .pipe(gulpif(options.env === 'dev', cssbeautify({
       indent: '  ',
       openbrace: 'end-of-line',
       autosemicolon: true
     })))
+    .pipe(gulpif(options.env !== 'dev', cleanCSS()))
     .pipe(gulp.dest(paths.dist.styles))
 });

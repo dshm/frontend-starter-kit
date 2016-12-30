@@ -1,10 +1,5 @@
-*,
 input[type="search"] {
   box-sizing: border-box;
-  &::after,
-  &::before {
-    box-sizing: border-box;
-  }
 }
 * {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -52,7 +47,6 @@ textarea {
     }
   }
 }
-
 @for $i from 1 through 6 {
   h#{$i} {
     margin: 0;

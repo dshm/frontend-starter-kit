@@ -25,5 +25,11 @@
 //imports sprites
 @import "sprite-png";
 
+//imports common styles
+@import "common";
+
+//imports common components
+@import "components";
+
 //project styles
 @import "app/*.scss";
