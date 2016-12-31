@@ -10,7 +10,8 @@ export default {
     } else if (typeof value === 'object') {
       throw new TypeError(`Value is object. ${errorMessage}`)
     }
-    const newValue = value.toString().trim();
+    const newValue = value.toString()
+      .trim();
     return !!newValue.length;
   },
   isImage(file) {
