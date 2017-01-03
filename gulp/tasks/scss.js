@@ -49,12 +49,12 @@ gulp.task('scss', () => {
       ignore: ignoreSettings,
       html: [`${paths.baseDist}/*.html`]
     })))
-    .pipe(gulpif(options.env === 'dev', sourcemaps.write('.')))
     .pipe(gulpif(options.env === 'dev', cssbeautify({
       indent: '  ',
       openbrace: 'end-of-line',
       autosemicolon: true
     })))
+    .pipe(gulpif(options.env === 'dev', sourcemaps.write('.')))
     .pipe(gulpif(options.env !== 'dev', cleanCSS()))
     .pipe(gulp.dest(paths.dist.styles))
 });

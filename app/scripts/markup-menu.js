@@ -24,6 +24,11 @@ export function markupMenu(document) {
       background: #000;
       color: #fff;
       padding: 5px;
+      font-weight: 300;
+      font-size: 12px;
+      border: none;
+      border-radius: 3px 0 0 0;
+      cursor: pointer;
     }
     .helper-nav-wrapper {
       position: fixed;
