@@ -35,7 +35,7 @@ gulp.task('watch', () => {
     runSequence('static', reload);
   });
 
-  watch(`${paths.src.components}/**/*.`, () => {
+  watch(`${paths.src.components}/**/*`, () => {
     runSequence('components', reload);
   });
 
@@ -45,13 +45,5 @@ gulp.task('watch', () => {
 
   watch(`${paths.src.images}/**/*.{png,jpg,gif,svg}`, () => {
     runSequence('images', reload);
-  });
-
-  watch([`${paths.src.scripts}/**/*.js`, `!${paths.src.scripts}/vendor/**/*`], () => {
-    runSequence('scripts:compile');
-  });
-
-  watch(`${paths.src.scripts}/vendor/**/*`, () => {
-    runSequence('scripts:copy', reload);
   });
 });

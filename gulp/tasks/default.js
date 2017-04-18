@@ -11,8 +11,6 @@ gulp.task('default', () => {
       'php-files',
       'markup-menu',
       'scss',
-      'scripts:compile',
-      'scripts:copy',
       'images',
       'components',
       'static',

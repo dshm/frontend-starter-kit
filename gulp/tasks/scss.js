@@ -10,7 +10,6 @@ import paths from '../paths';
 import { browsers } from '../../browsers.json';
 import sourcemaps from 'gulp-sourcemaps';
 import gulpif from 'gulp-if';
-import cssbeautify from 'gulp-cssbeautify';
 import { ignoreOptions } from '../../uncss.json';
 import uncss from 'gulp-uncss';
 import glob from 'gulp-sass-glob';
@@ -48,11 +47,6 @@ gulp.task('scss', () => {
     .pipe(gulpif(options.uncss === true, uncss({
       ignore: ignoreSettings,
       html: [`${paths.baseDist}/*.html`]
-    })))
-    .pipe(gulpif(options.env === 'dev', cssbeautify({
-      indent: '  ',
-      openbrace: 'end-of-line',
-      autosemicolon: true
     })))
     .pipe(gulpif(options.env === 'dev', sourcemaps.write('.')))
     .pipe(gulpif(options.env !== 'dev', cleanCSS()))

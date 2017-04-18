@@ -1,5 +1,6 @@
 body {
   height: 100%;
+  font-family: sans-serif;
 }
 * {
   &::after,
@@ -14,7 +15,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   &__title {
-    font-weight: bold;
+    font-weight: 400;
   }
   &__logo {
     display: inline-block;
