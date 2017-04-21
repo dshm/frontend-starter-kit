@@ -46,4 +46,8 @@ gulp.task('watch', () => {
   watch(`${paths.src.images}/**/*.{png,jpg,gif,svg}`, () => {
     runSequence('images', reload);
   });
+
+  watch(`${paths.src.scripts}/**/*.js`, () => {
+    runSequence('scripts:compile');
+  });
 });
