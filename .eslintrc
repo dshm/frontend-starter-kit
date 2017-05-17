@@ -14,7 +14,10 @@
     "modules": true
   },
   "rules": {
-    no-unused-expressions: [2, { allowShortCircuit: true, allowTernary: true }],
+    "no-param-reassign": [2,{ "props": false }],
+    "no-unused-expressions": [2, { allowShortCircuit: true, allowTernary: true }],
+    "no-restricted-syntax": ["error",  "WithStatement", "BinaryExpression[operator='in']"],
+    "func-names": 0,
     "no-console": ["error", { allow: ["warn", "error"] }],
     "arrow-body-style": 0,
     "react/jsx-first-prop-new-line": 0,
