@@ -27,9 +27,7 @@ gulp.task('email-build', () => {
 
 gulp.task('email', () => {
   runSequence(
-    [
-      'clean-email',
-      'email-build'
-    ]
+    'clean-email',
+    'email-build'
   );
 });
