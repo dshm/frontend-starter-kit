@@ -5,7 +5,7 @@
 class Tabs {
   constructor(options) {
     this.options = mergeObjects({
-      selector: 'ul.tabs',
+      selector: '.tabs, .tab-list',
       activeClass: 'active',
       checkHash: true,
       tabLinks: 'a',
@@ -13,13 +13,13 @@ class Tabs {
       event: 'click'
     }, options);
 
-    return this.init(this.options)
+    return this.init(this.options);
   }
   init(options) {
     const tabs = document.querySelectorAll(options.selector);
     tabs.forEach((element) => {
-      this.setInitialState(element)
-    })
+      this.setInitialState(element);
+    });
   }
   setInitialState(element) {
     const links = element.querySelectorAll(this.options.tabLinks);
@@ -35,7 +35,7 @@ class Tabs {
         if (index === 0) {
           this.setActiveTab(link);
         }
-      })
+      });
     }
   }
   addEvents(links) {
@@ -45,15 +45,17 @@ class Tabs {
         if (!event.currentTarget.classList.contains(this.options.activeClass)) {
           this.setActiveTab(link);
         }
-      })
-    })
+      });
+    });
   }
   setActiveTab(activeTab) {
     activeTab.classList.add(this.options.activeClass);
     const activeTabID = activeTab.getAttribute(this.options.attribute);
     const activeTabBlock = document.querySelector(activeTabID);
-    activeTabBlock.style.display = 'block';
-    this.removeTabs(activeTab)
+    if (activeTabBlock) {
+      activeTabBlock.style.display = 'block';
+    }
+    this.removeTabs(activeTab);
   }
   removeTabs(activeTab) {
     const tabNav = activeTab.closest(this.options.selector);
@@ -62,11 +64,14 @@ class Tabs {
         element.classList.remove('active');
         const tabID = element.getAttribute(this.options.attribute);
         const tabBlock = document.querySelector(tabID);
-        tabBlock.style.display = 'none';
+        if (tabBlock) {
+          tabBlock.style.display = 'none';
+        }
       }
-    })
+    });
   }
 }
+
 
 function mergeObjects(obj1, obj2) {
   for (const property in obj2) {
@@ -83,6 +88,35 @@ function mergeObjects(obj1, obj2) {
     }
   }
   return obj1;
+}
+
+if (!NodeList.prototype.forEach) {
+  NodeList.prototype.forEach = Array.prototype.forEach;
+}
+
+if (!Element.prototype.closest) {
+  Element.prototype.closest = function (css) {
+    let node = this;
+    while (node) {
+      if (node.matches(css)) return node;
+      node = node.parentElement;
+    }
+    return null;
+  };
+}
+
+if (!Element.prototype.matches) {
+  Element.prototype.matches = function matches(selector) {
+    const element = this;
+    const elements = (element.document || element.ownerDocument).querySelectorAll(selector);
+    let index = 0;
+
+    while (elements[index] && elements[index] !== element) {
+      ++index;
+    }
+
+    return Boolean(elements[index]);
+  };
 }
 
 export default Tabs;
