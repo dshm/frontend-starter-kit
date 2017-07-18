@@ -42,7 +42,7 @@
     "no-trailing-spaces": 0,
     "no-multi-spaces": 0,
     "no-alert": 0,
-    "no-undef": 2,
+    "no-undef": 1,
     "no-unused-vars": [1, {"vars": "local", "args": "none"}],
     "no-floating-decimal": 0
   },
