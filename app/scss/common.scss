@@ -17,8 +17,4 @@ body {
   &__title {
     font-weight: 400;
   }
-  &__logo {
-    display: inline-block;
-    @extend %icon-logo;
-  }
 }
