@@ -1,5 +1,6 @@
 {
     "markup": "html",
     "env": "dev",
-    "uncss": false
+    "uncss": false,
+    "opencart": true
 }
