@@ -12,7 +12,6 @@ gulp.task('build', () => {
       'markup-menu',
       'scss',
       'scripts:compile',
-      'scripts:copy',
       'images',
       'components',
       'static',
