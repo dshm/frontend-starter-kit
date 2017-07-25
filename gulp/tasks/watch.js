@@ -3,6 +3,7 @@ import watch from 'gulp-watch';
 import runSequence from 'run-sequence';
 import { reload } from 'browser-sync';
 import paths from '../paths';
+import options from '../../options';
 
 gulp.task('watch', () => {
   global.watch = true;
@@ -19,12 +20,8 @@ gulp.task('watch', () => {
     runSequence('svg-sprite', reload);
   });
 
-  watch(`${paths.baseSrc}/pug/**/*.pug`, () => {
-    runSequence('markup', 'markup-menu', reload);
-  });
-
-  watch([`${paths.baseSrc}/*.html`, `${paths.src.layouts}/**/*.html`], () => {
-    runSequence('markup', 'markup-menu', reload);
+  watch([`${paths.baseSrc}/**/*.${options.templateEngine}`], () => {
+    runSequence(`${options.templateEngine}`, 'files-menu', reload);
   });
 
   watch([`${paths.baseSrc}/*.php`], () => {

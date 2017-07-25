@@ -1,7 +1,7 @@
 #Markup framework
 ##Requirements
-* node ^6.3.0
-* npm ^3.10.0
+* node ^8.2.1
+* npm ^5.3.0
 
 ##Getting Started
 `$ git clone https://github.com/dshm/markup-framework.git`
@@ -25,7 +25,7 @@ To set the type in the console `npm install gulp bower -g`
 
 **uncss.json** - In this file, you can specify the required ignore ClassNames for [gulp-uncss](https://www.npmjs.com/package/gulp-uncss)
 
-**options.json** - In this file, you can specify your environment `env = "dev"|"prod"`, template language `markup = "html"|"pug"`, and if you need to use uncss `uncss = true|false`
+**options.json** - In this file, you can specify your environment `env = "dev"|"prod"`, template language `templateEngine = "html"|"pug"`, and if you need to use uncss `uncss = true|false`
 
 ## Gulp tasks
 * **gulp** - default task which runs the project with the initial settings with browsersync and Livereload
@@ -48,26 +48,27 @@ To set the type in the console `npm install gulp bower -g`
 ```
 .
 ├── app
-│   └── data
+│   ├── _includes
+│   ├── _layouts
+│   ├── _mixins
+│   ├── data
 │   ├── fonts
 │   ├── images
-│   ├── pug
-│   ├── layouts
 │   ├── png-sprite
 │   ├── scripts
-│   │   ├── vendor
+│   │   ├── components
 │   │   ├── index.js
 │   │   └── markup-menu.js
 │   ├── scss
 │   │   ├── app
-│   │   ├── _extends.scss
-│   │   ├── _mixins.scss
-│   │   ├── _normalize.scss
-│   │   ├── _variable.scss
+│   │   ├── components.scss
+│   │   ├── extends.scss
+│   │   ├── mixins.scss
+│   │   ├── normalize.scss
+│   │   ├── variable.scss
 │   │   └── index.scss
 │   ├── svg-sprite
-│   ├── favicon.ico
-│   └── index.html                
+│   └── index.html  // or index.pug          
 ├── dist               
 ├── gulp                    
 │   └── tasks

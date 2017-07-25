@@ -1,0 +1,25 @@
+mixin image(source)
+  img(src='/images/'+source, alt='image')&attributes(attributes)
+
+mixin data(source)
+  img(src='/data/'+source, alt="image")&attributes(attributes)
+
+mixin svg(icon, w, h)
+  svg(width=w, height=h)&attributes(attributes)
+    use(xlink:href="/images/sprite.svg#"+icon)
+
+mixin breadcrumbs(array)
+  ul(itemscope itemtype="http://schema.org/BreadcrumbList").breadcrumbs
+    each link, index in array
+      if (index == array.length - 1)
+        li(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem").breadcrumbs__item
+          span(itemprop="name")= link
+          meta(itemprop="position" content=""+index)
+      else
+        li(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem").breadcrumbs__item
+          a(itemscope itemtype="http://schema.org/Thing" itemprop="item" href="#").breadcrumbs__link
+            span(itemprop="name")= link
+          meta(itemprop="position" content=""+index)
+
+mixin title(text)
+  .title= text

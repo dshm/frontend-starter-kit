@@ -1,6 +1,6 @@
 {
-    "markup": "html",
+    "templateEngine": "html",
     "env": "dev",
     "uncss": false,
-    "opencart": true
+    "distPath": "default"
 }

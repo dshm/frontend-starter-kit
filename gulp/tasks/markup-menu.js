@@ -1,17 +1,16 @@
 import gulp from 'gulp';
-import gutil from 'gulp-util';
 import paths from '../paths';
-import { markup, env } from '../../options.json';
+import { templateEngine, env } from '../../options.json';
 import fs from 'fs';
 
 const options = {
-  markup,
-  reg: markup === 'html' ?  /\.(html)$/i : /\.(pug)$/i,
-  path: markup === 'html' ?  paths.baseSrc : paths.src.pug,
+  templateEngine,
+  reg: templateEngine === 'html' ?  /\.(html)$/i : /\.(pug)$/i,
+  path: paths.baseSrc,
   excludeReg: /^(ajax|_)/i
 }
 
-gulp.task('markup-menu', () => {
+gulp.task('files-menu', () => {
   fs.readdir(options.path, (err, files) => {
     const arr = [];
     const {
