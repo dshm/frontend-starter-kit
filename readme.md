@@ -1,6 +1,6 @@
 #Markup framework
 ##Requirements
-* node ^8.2.1
+* node ^8.3.0
 * npm ^5.3.0
 
 ##Getting Started

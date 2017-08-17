@@ -1,6 +1,5 @@
 {
     "templateEngine": "html",
     "env": "dev",
-    "uncss": false,
-    "distPath": "default"
+    "uncss": false
 }

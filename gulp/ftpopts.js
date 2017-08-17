@@ -11,6 +11,6 @@ export default {
     fonts: '/fonts',
     images: '/images',
     data: '/data',
-    markup: '/'
+    root: '/'
   }
 }

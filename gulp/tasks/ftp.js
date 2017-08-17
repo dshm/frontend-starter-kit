@@ -85,8 +85,15 @@ gulp.task('ftp:oc', () => {
   return gulp
     .src([
       '../**/*',
-      '!../front-end/',
-      '!../front-end/**',
+      '!../front/node_modules',
+      '!../front/node_modules/**',
+      '!../front/app',
+      '!../front/app/**',
+      '!../front/gulp',
+      '!../front/gulp/**',
+      '!../front/dist/*.html',
+      '!../front/*.{json,js,md,hbs}',
+      '!../front/LICENSE',
       '!../config.php',
       '!../**/.htaccess',
       '!../**/*.sql',

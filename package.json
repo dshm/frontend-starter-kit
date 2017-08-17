@@ -51,6 +51,7 @@
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^3.3.0",
     "gulp-inline-css": "^3.1.0",
+    "gulp-multi-dest": "0.0.4",
     "gulp-nunjucks-render": "^2.2.1",
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^6.4.0",
