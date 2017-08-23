@@ -5,12 +5,13 @@
 class Tabs {
   constructor(options) {
     this.options = mergeObjects({
-      selector: '.tabs, .tab-list',
+      selector: '.tabs',
       activeClass: 'active',
       checkHash: true,
       tabLinks: 'a',
       attribute: 'href',
-      event: 'click'
+      event: 'click',
+      onChange: null
     }, options);
 
     return this.init(this.options);
@@ -56,6 +57,9 @@ class Tabs {
       activeTabBlock.style.display = 'block';
     }
     this.removeTabs(activeTab);
+    if (typeof this.options.onChange === "function") {
+      this.options.onChange();
+    }
   }
   removeTabs(activeTab) {
     const tabNav = activeTab.closest(this.options.selector);

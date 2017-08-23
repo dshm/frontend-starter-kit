@@ -26,7 +26,7 @@ gulp.task('pug', () => {
       skip: 'node_modules'
     }))
     .pipe(filter((file) => {
-      return !/\/_/.test(file.path) || !/^_/.test(file.relative);
+      return !/(\/_|\\_)/.test(file.path) || !/^_/.test(file.relative);
     }))
     .pipe(posthtml([
       imgAutoSize({

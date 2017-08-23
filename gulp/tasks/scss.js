@@ -7,7 +7,6 @@ import autoprefixer from 'gulp-autoprefixer';
 import stripCssComments from 'gulp-strip-css-comments';
 import errorHandler from '../utils/errorHandler';
 import paths from '../paths';
-import { browsers } from '../../browsers.json';
 import sourcemaps from 'gulp-sourcemaps';
 import gulpif from 'gulp-if';
 import { ignoreOptions } from '../../uncss.json';
@@ -30,15 +29,7 @@ gulp.task('scss', () => {
       .on('error', scss.logError))
     .pipe(gulpif(options.env !== 'dev', stripCssComments()))
     .pipe(autoprefixer({
-      browsers: [
-        `Android >= ${browsers.android}`,
-        `Chrome >= ${browsers.chrome}`,
-        `Firefox >= ${browsers.firefox}`,
-        `Explorer >= ${browsers.ie}`,
-        `iOS >= ${browsers.ios}`,
-        `Opera >= ${browsers.opera}`,
-        `Safari >= ${browsers.safari}`
-      ],
+      browsers: ['last 2 versions'],
       cascade: false
     }))
     .pipe(postcss([

@@ -1,6 +1,6 @@
 {
   "name": "front-end-developer-kit",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Front-End developer kit(es2015,sass,sprites,optimization)",
   "main": "index.js",
   "scripts": {
@@ -42,7 +42,7 @@
     "eslint-plugin-react": "^5.2.2",
     "fs": "0.0.2",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
+    "gulp-autoprefixer": "^4.0.0",
     "gulp-cached": "^1.1.1",
     "gulp-changed": "^3.1.0",
     "gulp-clean-css": "^3.7.0",

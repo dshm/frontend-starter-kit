@@ -21,7 +21,11 @@ gulp.task('watch', () => {
   });
 
   watch([`${paths.baseSrc}/**/*.${options.templateEngine}`], () => {
-    runSequence(`${options.templateEngine}`, 'files-menu', reload);
+    runSequence(`${options.templateEngine}`, reload);
+  });
+
+  watch([`${paths.baseSrc}/*.${options.templateEngine}`], { events: ['add', 'unlink'] }, () => {
+    runSequence('files-menu', reload);
   });
 
   watch([`${paths.baseSrc}/*.php`], () => {

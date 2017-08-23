@@ -32,7 +32,7 @@ gulp.task('html', () => {
       })
     ]))
     .pipe(filter((file) => {
-      return !/\/_/.test(file.path) || !/^_/.test(file.relative);
+      return !/(\/_|\\_)/.test(file.path) || !/^_/.test(file.relative);
     }))
     .pipe(gulp.dest(paths.baseDist))
 });

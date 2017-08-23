@@ -13,10 +13,7 @@ const options = {
 gulp.task('files-menu', () => {
   fs.readdir(options.path, (err, files) => {
     const arr = [];
-    const {
-      reg,
-      excludeReg
-    } = options;
+    const { reg, excludeReg } = options;
     for (let i = 0; i < files.length; i++) {
       if (excludeReg.test(files[i])) {
         continue;
