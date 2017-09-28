@@ -57,7 +57,6 @@ class Tabs {
     const activeTabID = activeTab.getAttribute(this.options.attribute);
     const activeTabBlock = document.querySelector(activeTabID);
     if (activeTabBlock) {
-      activeTabBlock.style.display = 'block';
       activeTabBlock.classList.add('active');
     }
     this.removeTabs(activeTab);
@@ -73,7 +72,6 @@ class Tabs {
         const tabID = element.getAttribute(this.options.attribute);
         const tabBlock = document.querySelector(tabID);
         if (tabBlock) {
-          tabBlock.style.display = 'none';
           tabBlock.classList.remove('active');
         }
       }
