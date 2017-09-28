@@ -1,54 +1,28 @@
-input[type="search"] {
-  box-sizing: border-box;
-}
 * {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
-a,
-button,
-input,
-keygen,
-select,
-textarea {
-  font-family: inherit;
-  outline-width: 0;
-}
-li,
-ol,
-p,
-ul {
+body {
   margin: 0;
 }
-input,
-textarea {
-  border-radius: 0;
-  background-color: transparent;
-  &::-ms-clear {
-    display: none;
-  }
+// input styles
+input:not([type=checkbox]):not([type=radio]),
+textarea,
+select {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
 }
-button {
-  padding: 0;
-  border: none;
-  background-color: transparent;
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
 }
-input,
-select,
-textarea {
-  &:-webkit-autofill {
-    -webkit-text-fill-color: #333;
-    -webkit-box-shadow: 0 0 0 1000px #fff inset;
-    transition: background-color 5000s ease-in-out 0s;
-    &:focus,
-    &:hover {
-      -webkit-text-fill-color: #333;
-      -webkit-box-shadow: 0 0 0 1000px #fff inset;
-      transition: background-color 5000s ease-in-out 0s;
-    }
-  }
+// clear input button in ie
+input::-ms-clear {
+  display: none;
 }
-@for $i from 1 through 6 {
-  h#{$i} {
-    margin: 0;
-  }
+// stretching img relative to a parent block
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
 }

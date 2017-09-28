@@ -1,8 +1,14 @@
 include ../_mixins/mixins.pug
 doctype html
 html(lang="en")
-  include ../_includes/head.pug
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="x-ua-compatible", content="ie=edge")
+    meta(name="description", content="")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title Title
+    link(href="/css/index.css", rel="stylesheet")
   body
     .wrapper
       block content
-    include ../_includes/js.pug
+    script(src="/js/app.js")

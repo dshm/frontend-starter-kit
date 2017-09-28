@@ -1,6 +1,9 @@
-// for use write
 // import Tabs from './components/tabs';
-// const tabs = new Tabs();
+// new Tabs({
+//   onChange() {
+//     // callback
+//   }
+// });
 
 class Tabs {
   constructor(options) {
@@ -55,6 +58,7 @@ class Tabs {
     const activeTabBlock = document.querySelector(activeTabID);
     if (activeTabBlock) {
       activeTabBlock.style.display = 'block';
+      activeTabBlock.classList.add('active');
     }
     this.removeTabs(activeTab);
     if (typeof this.options.onChange === "function") {
@@ -70,6 +74,7 @@ class Tabs {
         const tabBlock = document.querySelector(tabID);
         if (tabBlock) {
           tabBlock.style.display = 'none';
+          tabBlock.classList.remove('active');
         }
       }
     });
