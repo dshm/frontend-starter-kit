@@ -1,5 +1,5 @@
 import files from './files';
-export function markupMenu(document) {
+(function () {
   const nav = document.createElement('div');
   const style = document.createElement('style');
   const button = document.createElement('button');
@@ -55,10 +55,10 @@ export function markupMenu(document) {
       }
     }`;
   document.head.appendChild(style);
-  if (files[0] !== 'dev') {
-    console.warn('Art Lemon production');
+  if (files.length <= 2) {
     return;
   }
+
   for (let i = 1; i < files.length; i++) {
     nav.innerHTML += `<a href="/${files[i]}">${i}-${files[i]}</a>`;
   }
@@ -86,4 +86,4 @@ export function markupMenu(document) {
     }
   });
   button.addEventListener('click', toggleNav);
-}
+})()
