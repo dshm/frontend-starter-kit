@@ -2,8 +2,8 @@
     constructor(options) {
       this.options = mergeObjects({
         selector: 'select',
-        customSelectClassName:'select',
-        customSelectActiveClassName:'select--open',
+        customSelectClassName: 'select',
+        customSelectActiveClassName: 'select--open',
         currentClassName: 'select__current',
         selectListClassName: 'select__list',
         selectItemlassName: 'select__item',
@@ -11,18 +11,29 @@
         disableItemClass: 'select__item--disabled',
         activeClass: 'select--open',
         event: 'click',
-        onChange: null
+        onChange(select) {
+          // ...
+        }
       }, options);
 
-      return this.init(this.options);
+      return this.init(this.options.selector);
     }
-    init(options) {
-      const selects = document.querySelectorAll(options.selector);
+    init(selector) {
+      const selects = document.querySelectorAll(selector);
       if (!selects) return;
       selects.forEach((element) => {
         const customSelect = this.renderSelect(element);
         element.parentNode.insertBefore(customSelect, element.nextSibling);
       });
+    }
+    update(selector) {
+      document.querySelectorAll(selector).forEach((select) => {
+        const nextElement = select.nextSibling;
+        if (nextElement.classList.contains(this.options.selector)) {
+          nextElement.remove();
+        }
+      });
+      this.init(selector);
     }
     renderSelect(select) {
       const currentElement = document.createElement('span');
@@ -35,7 +46,7 @@
         customSelect.classList.add(...nativeSelectClasses);
       }
 
-       // add tabindex if it exist
+      // add tabindex if it exist
       if (select.getAttribute('tabindex')) {
         customSelect.setAttribute('tabindex', select.getAttribute('tabindex'));
       }
@@ -51,10 +62,10 @@
 
       const options = select.querySelectorAll('option');
       const selected = select.querySelector('option:checked');
-      // set current 
+      // set current
       const currentText = selected.getAttribute('data-display') || selected.innerText;
       currentElement.innerText = currentText;
-      
+
       // build list
       options.forEach((option, index) => {
         const display = option.getAttribute('data-display');
@@ -81,27 +92,54 @@
 
       this.addListeners(select, customSelect);
 
-      return  customSelect;
+      return customSelect;
     }
     addListeners(select, customSelect) {
       const options = this.options;
-      
-      // select.addEventListener('change', function () {
-      //   console.log(this.value);
-      // });
+
+      select.addEventListener('change', function () {
+        if (typeof options.onChange === "function") {
+          options.onChange(this);
+        }
+      });
 
       customSelect.addEventListener('click', function () {
         this.classList.toggle(options.customSelectActiveClassName);
       });
 
       const optionsList = customSelect.getElementsByClassName(options.selectItemlassName);
+      const currentElement = customSelect.getElementsByClassName(options.currentClassName)[0];
+      const naviveOptions = select.querySelectorAll('option');
 
-      for (let index = 0; index < optionsList.length; index++) {
-        const item = optionsList[index];
-        item.addEventListener('click', function () {
-          console.log(this);
+
+      Array.prototype.forEach.call(optionsList, (item) => {
+        item.addEventListener('click', function (event) {
+          if (this.classList.contains(options.activeItemClass)) {
+            return;
+          }
+
+          if (this.classList.contains(options.disableItemClass)) {
+            event.stopPropagation();
+            return;
+          }
+          const index = Array.prototype.indexOf.call(this.parentElement.children, this);
+
+          Array.prototype.forEach.call(customSelect.getElementsByClassName(options.selectItemlassName), (element) => {
+            element.classList.remove(options.activeItemClass);
+          });
+
+          currentElement.innerText = this.innerText;
+          this.classList.add(options.activeItemClass);
+
+          // change select value
+          select.value = this.getAttribute('data-value');
+          naviveOptions.forEach((nativeItem) => {
+            nativeItem.selected = false;
+          });
+          naviveOptions[index].selected = true;
+          select.dispatchEvent(new Event('change'))
         })
-      }
+      });
     }
   }
 
@@ -125,30 +163,5 @@
   if (!NodeList.prototype.forEach) {
     NodeList.prototype.forEach = Array.prototype.forEach;
   }
-
-  // if (!Element.prototype.closest) {
-  //   Element.prototype.closest = function (css) {
-  //     let node = this;
-  //     while (node) {
-  //       if (node.matches(css)) return node;
-  //       node = node.parentElement;
-  //     }
-  //     return null;
-  //   };
-  // }
-
-  // if (!Element.prototype.matches) {
-  //   Element.prototype.matches = function matches(selector) {
-  //     const element = this;
-  //     const elements = (element.document || element.ownerDocument).querySelectorAll(selector);
-  //     let index = 0;
-
-  //     while (elements[index] && elements[index] !== element) {
-  //       ++index;
-  //     }
-
-  //     return Boolean(elements[index]);
-  //   };
-  // }
 
   export default Select;

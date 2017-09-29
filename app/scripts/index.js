@@ -3,5 +3,5 @@ import Select from './components/select'
 
 document.addEventListener('DOMContentLoaded', () => {
   // ...
-  new Select();
+  global.customSelect = new Select();
 })

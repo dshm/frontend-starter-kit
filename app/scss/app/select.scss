@@ -1,11 +1,14 @@
+select{
+  display: none;
+}
 .select {
-  margin: 100px;
+  margin: auto;
   border: 1px solid #e8e8e8;
   padding: 1em 2em;
   position: relative;
   user-select: none;
-  border-radius: 5px;
   cursor: pointer;
+  margin: 15px;
   white-space: nowrap;
   outline: none;
   overflow: hidden;
@@ -74,6 +77,10 @@
     &--active {
       font-weight: bold;
       background: #eee;
+    }
+    &--disabled {
+      opacity: .3;
+      cursor: not-allowed;
     }
   }
 }

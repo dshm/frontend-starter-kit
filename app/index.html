@@ -3,13 +3,19 @@
   {% include 'head.html' %}
   <body>
    
-      <select class="select--medium test" tabindex="1">
+      <select class="select--medium" tabindex="1">
         <option data-display="Select">Nothing</option>
-        <option  class="red" value="1">Some option</option>
-        <option value="2">Another option</option>
-        <option value="3" disabled>A disabled option</option>
-        <option value="4">Potato</option>
+        <option value="option 2" class="custom-option">Some option</option>
+        <option value="option 3">Another option</option>
+        <option value="option 4" disabled>A disabled option</option>
       </select>
+
+      <select id="select" tabindex="1">
+          <option >1</option>
+          <option value="option 2" class="custom-option">Some option</option>
+          <option value="option 3">Another option</option>
+          <option value="option 4" disabled>A disabled option</option>
+        </select>
 
     {% include 'js.html' %}
   </body>
