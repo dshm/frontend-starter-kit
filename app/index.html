@@ -2,6 +2,15 @@
 <html lang="en">
   {% include 'head.html' %}
   <body>
+   
+      <select class="select--medium test" tabindex="1">
+        <option data-display="Select">Nothing</option>
+        <option  class="red" value="1">Some option</option>
+        <option value="2">Another option</option>
+        <option value="3" disabled>A disabled option</option>
+        <option value="4">Potato</option>
+      </select>
+
     {% include 'js.html' %}
   </body>
 </html>

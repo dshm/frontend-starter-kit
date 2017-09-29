@@ -1,14 +1,40 @@
-// import Tabs from './components/tabs';
-// new Tabs({
-//   onChange() {
-//     // callback
-//   }
-// });
+/*
+#HTML
+
+<ul class="tab-list">
+  <li class="tab-list__item"><a class="tab-list__link" href="#tab1">Tab 1</a></li>
+  <li class="tab-list__item"><a class="tab-list__link" href="#tab2">Tab 2</a></li>
+  <li class="tab-list__item"><a class="tab-list__link" href="#tab3">Tab 3</a></li>
+</ul>
+<div class="tabs-holder">
+  <div class="tab" id="tab1">Tab content 1</div>
+  <div class="tab" id="tab2">Tab content 2</div>
+  <div class="tab" id="tab3">Tab content 3</div>
+</div>
+
+#JS
+
+import Tabs from './components/tabs';
+new Tabs({
+  onChange() {
+    // callback
+  }
+});
+
+#CSS
+.tab{
+  display: none;
+  &.active{
+    display: block;
+  }
+}
+
+*/
 
 class Tabs {
   constructor(options) {
     this.options = mergeObjects({
-      selector: '.tabs',
+      selector: '.tabs-list',
       activeClass: 'active',
       checkHash: true,
       tabLinks: 'a',
@@ -55,6 +81,7 @@ class Tabs {
   setActiveTab(activeTab) {
     activeTab.classList.add(this.options.activeClass);
     const activeTabID = activeTab.getAttribute(this.options.attribute);
+    if (activeTabID === "#") return;
     const activeTabBlock = document.querySelector(activeTabID);
     if (activeTabBlock) {
       activeTabBlock.classList.add('active');
