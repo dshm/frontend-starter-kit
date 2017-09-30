@@ -1,6 +1,6 @@
 {
   "name": "front-end-developer-kit",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Front-End developer kit(es2015,sass,sprites,optimization)",
   "main": "index.js",
   "scripts": {
@@ -82,6 +82,5 @@
     "vinyl-source-stream": "^1.1.0",
     "webpack": "^1.15.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
