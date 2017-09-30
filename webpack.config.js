@@ -1,7 +1,6 @@
 import paths from './gulp/paths';
 import webpack from 'webpack';
 import { env } from './options';
-import { resolve } from 'path';
 
 export default {
   entry: [
