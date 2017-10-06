@@ -33,7 +33,7 @@ new Tabs({
 
 class Tabs {
   constructor(options) {
-    this.options = mergeObjects({
+    const defaultOption = {
       selector: '.tabs-list',
       activeClass: 'active',
       checkHash: true,
@@ -41,7 +41,11 @@ class Tabs {
       attribute: 'href',
       event: 'click',
       onChange: null
-    }, options);
+    }
+    this.options = {
+      ...defaultOption,
+      ...options
+    }
 
     return this.init(this.options);
   }
@@ -104,53 +108,6 @@ class Tabs {
       }
     });
   }
-}
-
-
-function mergeObjects(obj1, obj2) {
-  for (const property in obj2) {
-    if ({}.hasOwnProperty.call(obj2, property)) {
-      try {
-        if (obj2[property].constructor === Object) {
-          obj1[property] = mergeObjects(obj1[property], obj2[property]);
-        } else {
-          obj1[property] = obj2[property];
-        }
-      } catch (e) {
-        obj1[property] = obj2[property];
-      }
-    }
-  }
-  return obj1;
-}
-
-if (!NodeList.prototype.forEach) {
-  NodeList.prototype.forEach = Array.prototype.forEach;
-}
-
-if (!Element.prototype.closest) {
-  Element.prototype.closest = function (css) {
-    let node = this;
-    while (node) {
-      if (node.matches(css)) return node;
-      node = node.parentElement;
-    }
-    return null;
-  };
-}
-
-if (!Element.prototype.matches) {
-  Element.prototype.matches = function matches(selector) {
-    const element = this;
-    const elements = (element.document || element.ownerDocument).querySelectorAll(selector);
-    let index = 0;
-
-    while (elements[index] && elements[index] !== element) {
-      ++index;
-    }
-
-    return Boolean(elements[index]);
-  };
 }
 
 export default Tabs;
