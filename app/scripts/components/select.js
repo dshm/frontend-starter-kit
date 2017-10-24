@@ -65,7 +65,7 @@ class Select {
     customSelect.appendChild(customSelectList);
 
     const options = select.querySelectorAll('option');
-    const selected = select.querySelector('option:checked');
+    const selected = select.querySelector('option:checked') || select.querySelector('option:first-child');
     // set current
     const currentText = selected.getAttribute('data-display') || selected.innerText;
     currentElement.innerText = currentText;
