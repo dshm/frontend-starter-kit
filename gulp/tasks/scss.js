@@ -14,6 +14,7 @@ import uncss from 'gulp-uncss';
 import glob from 'gulp-sass-glob';
 import options from '../../options';
 import cleanCSS from 'gulp-clean-css';
+
 const ignoreSettings = ignoreOptions.split(' ')
   .map((element) => {
     return new RegExp(element);

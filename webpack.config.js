@@ -1,6 +1,23 @@
 import paths from './gulp/paths';
 import webpack from 'webpack';
-import { env } from './options';
+import {
+  env
+} from './options';
+
+const uglifyJS = new webpack.optimize.UglifyJsPlugin({
+  compress: {
+    warnings: false,
+    comparisons: false
+  },
+  mangle: {
+    safari10: true
+  },
+  output: {
+    comments: false,
+    ascii_only: true
+  },
+  sourceMap: env == 'dev'
+});
 
 export default {
   entry: [
@@ -10,54 +27,26 @@ export default {
     `${paths.src.scripts}/index.js`
   ],
   output: {
-    path: `${paths.dist.scripts}/`,
+    path: `${__dirname}/dist/js/`,
     filename: 'app.js'
   },
-  devtool: '#cheap-source-map',
+  devtool: 'cheap-module-source-map',
   resolve: {
-    moduleDirectories: ['node_modules'],
-    extensions: ['', '.js']
-  },
-  resolveLoader: {
-    modulesDirectories: ["node_modules"],
-    extensions: ["loader.js", ".js", '']
+    modules: ['node_modules'],
+    extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx']
   },
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'react']
-        }
+    loaders: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: require.resolve('babel-loader'),
+      query: {
+        presets: ['es2015', 'react']
       }
-    ]
+    }]
   },
-  plugins: env !== 'dev' ? [
-    new webpack.optimize.UglifyJsPlugin({
-      minimize: true,
-      sourceMap: false,
-      output: {
-        comments: false
-      },
-      compressor: {
-        warnings: false
-      }
-    }),
-    new webpack.ProvidePlugin({
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      jquery: 'jquery',
-      'window.jquery': 'jquery',
-      $: 'jquery',
-      'window.$': 'jquery'
-    })] : [new webpack.ProvidePlugin({
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      jquery: 'jquery',
-      'window.jquery': 'jquery',
-      $: 'jquery',
-      'window.$': 'jquery'
-    })]
+  plugins: env !== 'dev' ? [uglifyJS] : [],
+  performance: {
+    hints: false
+  }
 }

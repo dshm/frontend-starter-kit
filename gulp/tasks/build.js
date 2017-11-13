@@ -4,7 +4,7 @@ import options from '../../options';
 
 gulp.task('build', () => {
   runSequence(
-      'clean',
+    'clean',
     [
       'png-sprite',
       'svg-sprite',

@@ -1,8 +1,6 @@
 import gulp from 'gulp';
 import paths from '../paths';
 import cached from 'gulp-cached';
-import multiDest from 'gulp-multi-dest';
-import util from 'gulp-util';
 
 gulp.task('API', () => {
   return gulp

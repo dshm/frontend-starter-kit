@@ -1,5 +1,5 @@
 import gulp from 'gulp';
-import paths from '../paths';
+import paths from '../paths'; 
 import cached from 'gulp-cached';
 
 gulp.task('fonts', () => {

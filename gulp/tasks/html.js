@@ -5,7 +5,6 @@ import cached from 'gulp-cached';
 import errorHandler from '../utils/errorHandler';
 import paths from '../paths';
 import nunjucksRender from 'gulp-nunjucks-render';
-import imgAutoSize from '../utils/image-auto-size';
 import changed from 'gulp-changed';
 import filter from 'gulp-filter';
 

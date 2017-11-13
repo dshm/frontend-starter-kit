@@ -1,9 +1,10 @@
+import paths from '../paths';
 import gulp from 'gulp';
 import gulpif from 'gulp-if';
 import plumber from 'gulp-plumber';
 import errorHandler from '../utils/errorHandler';
 import svgsprite from 'gulp-svg-sprite';
-import paths from '../paths';
+
 
 const config = {
   shape: {
