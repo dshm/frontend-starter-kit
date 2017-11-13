@@ -15,7 +15,7 @@ gulp.task('default', () => {
       'images',
       'components',
       'static',
-      'favicon'
+      'API'
     ],
     'livereload',
     'watch'

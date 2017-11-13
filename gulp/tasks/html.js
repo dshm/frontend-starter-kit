@@ -5,7 +5,6 @@ import cached from 'gulp-cached';
 import errorHandler from '../utils/errorHandler';
 import paths from '../paths';
 import nunjucksRender from 'gulp-nunjucks-render';
-import posthtml from 'gulp-posthtml';
 import imgAutoSize from '../utils/image-auto-size';
 import changed from 'gulp-changed';
 import filter from 'gulp-filter';
@@ -25,12 +24,6 @@ gulp.task('html', () => {
       extension: '.html'
     }))
     .pipe(gulpif(global.watch, cached('html')))
-    .pipe(posthtml([
-      imgAutoSize({
-        processEmptySize: true,
-        root: paths.baseSrc
-      })
-    ]))
     .pipe(filter((file) => {
       return !/(\/_|\\_)/.test(file.path) || !/^_/.test(file.relative);
     }))

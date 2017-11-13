@@ -36,6 +36,10 @@ gulp.task('watch', () => {
     runSequence('static', reload);
   });
 
+  watch(`${paths.src.API}/*.json`, () => {
+    runSequence('API', reload);
+  });
+
   watch(`${paths.src.components}/**/*`, () => {
     runSequence('components', reload);
   });

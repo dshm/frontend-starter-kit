@@ -10,13 +10,14 @@ gulp.task('build', () => {
       'svg-sprite',
       'fonts',
       `${options.templateEngine}`,
+      'php-files',
       'files-menu',
       'scss',
       'scripts:compile',
       'images',
       'components',
       'static',
-      'favicon'
+      'API'
     ]
   );
 });

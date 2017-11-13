@@ -11,7 +11,8 @@ export default {
     scripts: './app/scripts',
     static: './app/data',
     includes: './app/_includes',
-    fonts: './app/fonts'
+    fonts: './app/fonts',
+    API: './app/API'
   },
 
   dist: {
@@ -22,7 +23,8 @@ export default {
     scripts: './dist/js',
     static: './dist/data',
     optimizedData: './dist/data-optimized',
-    fonts: './dist/fonts'
+    fonts: './dist/fonts',
+    API: './dist/API'
   },
   inline: {
     styles: '/css',

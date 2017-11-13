@@ -1,10 +1,10 @@
 /*
 #HTML
 
-<ul class="tab-list">
-  <li class="tab-list__item"><a class="tab-list__link" href="#tab1">Tab 1</a></li>
-  <li class="tab-list__item"><a class="tab-list__link" href="#tab2">Tab 2</a></li>
-  <li class="tab-list__item"><a class="tab-list__link" href="#tab3">Tab 3</a></li>
+<ul class="tabs-list">
+  <li class="tabs-list__item"><a class="tabs-list__link" href="#tab1">Tab 1</a></li>
+  <li class="tabs-list__item"><a class="tabs-list__link" href="#tab2">Tab 2</a></li>
+  <li class="tabs-list__item"><a class="tabs-list__link" href="#tab3">Tab 3</a></li>
 </ul>
 <div class="tabs-holder">
   <div class="tab" id="tab1">Tab content 1</div>
