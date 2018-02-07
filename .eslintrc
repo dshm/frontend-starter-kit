@@ -1,102 +1,23 @@
 {
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "plugins": ["prettier"],
   "parser": "babel-eslint",
-  "extends": [
-    "airbnb"
-  ],
-  "env": {
-    "browser": true,
-    "es6": true,
-    "node": true,
-    "jquery": true
+  "parserOptions": {
+    "ecmaVersion": 2016,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
-  "ecmaFeatures": {
-    "jsx": true,
-    "classes": true,
-    "modules": true
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
   },
   "rules": {
-    "import/no-extraneous-dependencies": false,
-    "import/first": false,
-    "import/extensions": false,
-    "no-param-reassign": [
-      2,
-      {
-        "props": false
-      }
-    ],
-    "no-unused-expressions": [
-      2,
-      {
-        "allowShortCircuit": true,
-        "allowTernary": true
-      }
-    ],
-    "no-restricted-syntax": [
-      "error",
-      "WithStatement",
-      "BinaryExpression[operator='in']"
-    ],
-    "func-names": 0,
-    "no-console": [
-      "error",
-      { "allow": [
-          "warn",
-          "error"
-        ]
-      }
-    ],
-    "arrow-body-style": 0,
-    "react/jsx-first-prop-new-line": 0,
-    "react/jsx-space-before-closing": [
-      2,
-      "never"
-    ],
-    "no-debugger": 1,
-    "object-shorthand": 0,
-    "react/jsx-closing-bracket-location": 0,
-    "comma-dangle": [
-      2,
-      "never"
-    ],
-    "react/prefer-stateless-function": 0,
-    "react/prefer-es6-class": 1,
-    "eqeqeq": 1,
-    "key-spacing": 0,
-    "new-cap": 0,
-    "strict": [
-      2,
-      "global"
-    ],
-    "no-underscore-dangle": 0,
-    "no-use-before-define": 0,
-    "default-case": 0,
-    "eol-last": 0,
-    "quotes": 0,
-    "semi": 0,
-    "space-infix-ops": 0,
-    "no-trailing-spaces": 0,
-    "no-multi-spaces": 0,
-    "no-alert": 0,
-    "no-undef": 1,
-    "no-unused-vars": [
-      1,
-      {
-        "vars": "local",
-        "args": "none"
-      }
-    ],
-    "no-floating-decimal": 0
-  },
-  "globals": {
-    "document": false,
-    "escape": false,
-    "navigator": false,
-    "unescape": false,
-    "window": false,
-    "describe": true,
-    "before": true,
-    "it": true,
-    "expect": true,
-    "sinon": true
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-underscore-dangle": [1, { "allow": ["_id"] }],
+    "no-unused-vars": ["error", { "argsIgnorePattern": "next" }],
+    "prettier/printWidth": 80
   }
 }

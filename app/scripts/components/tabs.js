@@ -1,57 +1,30 @@
-/*
-#HTML
-
-<ul class="tabs-list">
-  <li class="tabs-list__item"><a class="tabs-list__link" href="#tab1">Tab 1</a></li>
-  <li class="tabs-list__item"><a class="tabs-list__link" href="#tab2">Tab 2</a></li>
-  <li class="tabs-list__item"><a class="tabs-list__link" href="#tab3">Tab 3</a></li>
-</ul>
-<div class="tabs-holder">
-  <div class="tab" id="tab1">Tab content 1</div>
-  <div class="tab" id="tab2">Tab content 2</div>
-  <div class="tab" id="tab3">Tab content 3</div>
-</div>
-
-#JS
-
-import Tabs from './components/tabs';
-new Tabs({
-  onChange() {
-    // callback
-  }
-});
-
-#CSS
-.tab{
-  display: none;
-  &.active{
-    display: block;
-  }
-}
-
-*/
-
 class Tabs {
   constructor(options) {
     const defaultOption = {
-      selector: '.tabs-list',
-      activeClass: 'active',
+      selector: ".tabs-list",
+      activeClass: "active",
       checkHash: true,
-      tabLinks: 'a',
-      attribute: 'href',
-      event: 'click',
+      tabLinks: "a",
+      attribute: "href",
+      event: "click",
       onChange: null
-    }
+    };
     this.options = {
       ...defaultOption,
       ...options
-    }
+    };
 
     return this.init(this.options);
   }
   init(options) {
     const tabs = document.querySelectorAll(options.selector);
-    tabs.forEach((element) => {
+    tabs.forEach(element => {
+      this.setInitialState(element);
+    });
+  }
+  update(selector) {
+    const tabs = document.querySelectorAll(selector || this.options.selector);
+    tabs.forEach(element => {
       this.setInitialState(element);
     });
   }
@@ -60,7 +33,9 @@ class Tabs {
     this.addEvents(links);
     let historyLink = null;
     if (this.options.checkHash && window.location.hash) {
-      historyLink = element.querySelector(`[${this.options.attribute}="${window.location.hash}"]`);
+      historyLink = element.querySelector(
+        `[${this.options.attribute}="${window.location.hash}"]`
+      );
     }
     if (historyLink) {
       this.setActiveTab(historyLink);
@@ -73,8 +48,8 @@ class Tabs {
     }
   }
   addEvents(links) {
-    links.forEach((link, index) => {
-      link.addEventListener(this.options.event, (event) => {
+    links.forEach(link => {
+      link.addEventListener(this.options.event, event => {
         event.preventDefault();
         if (!event.currentTarget.classList.contains(this.options.activeClass)) {
           this.setActiveTab(link);
@@ -88,7 +63,7 @@ class Tabs {
     if (activeTabID === "#") return;
     const activeTabBlock = document.querySelector(activeTabID);
     if (activeTabBlock) {
-      activeTabBlock.classList.add('active');
+      activeTabBlock.classList.add("active");
     }
     this.removeTabs(activeTab);
     if (typeof this.options.onChange === "function") {
@@ -97,13 +72,13 @@ class Tabs {
   }
   removeTabs(activeTab) {
     const tabNav = activeTab.closest(this.options.selector);
-    tabNav.querySelectorAll(this.options.tabLinks).forEach((element) => {
+    tabNav.querySelectorAll(this.options.tabLinks).forEach(element => {
       if (element !== activeTab) {
-        element.classList.remove('active');
+        element.classList.remove("active");
         const tabID = element.getAttribute(this.options.attribute);
         const tabBlock = document.querySelector(tabID);
         if (tabBlock) {
-          tabBlock.classList.remove('active');
+          tabBlock.classList.remove("active");
         }
       }
     });

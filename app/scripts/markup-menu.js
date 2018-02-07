@@ -1,19 +1,20 @@
-import files from './files';
-(function () {
-  const nav = document.createElement('div');
-  const style = document.createElement('style');
-  const button = document.createElement('button');
-  const wrapper = document.createElement('div');
+import files from "./files";
+
+(function() {
+  const nav = document.createElement("div");
+  const style = document.createElement("style");
+  const button = document.createElement("button");
+  const wrapper = document.createElement("div");
   wrapper.appendChild(button);
   wrapper.appendChild(nav);
-  wrapper.className = 'helper-nav-wrapper';
+  wrapper.className = "helper-nav-wrapper";
   button.innerHTML = "Open pages list";
-  button.className = 'helper-nav-button';
-  nav.className = 'helper-nav';
+  button.className = "helper-nav-button";
+  nav.className = "helper-nav";
   style.innerHTML = `.helper-nav a:hover {
       color:#fff;
       background-color:#000;
-    }
+    } 
     .helper-nav a {
       display:block;
       color: #000;
@@ -63,27 +64,29 @@ import files from './files';
     nav.innerHTML += `<a href="/${files[i]}">${i}-${files[i]}</a>`;
   }
   document.body.appendChild(wrapper);
-  let flag = localStorage.getItem('flag') ? JSON.parse(localStorage.getItem('flag')) : false;
-  const display = flag ? 'block' : 'none';
-  const btnText = flag ? 'Close pages list' : 'Open pages list';
+  let flag = localStorage.getItem("flag")
+    ? JSON.parse(localStorage.getItem("flag"))
+    : false;
+  const display = flag ? "block" : "none";
+  const btnText = flag ? "Close pages list" : "Open pages list";
   nav.style.display = display;
   button.innerHTML = btnText;
 
   function toggleNav() {
     if (flag) {
-      nav.style.display = 'none';
-      button.innerHTML = 'Open pages list';
+      nav.style.display = "none";
+      button.innerHTML = "Open pages list";
     } else {
-      nav.style.display = 'block';
-      button.innerHTML = 'Close pages list';
+      nav.style.display = "block";
+      button.innerHTML = "Close pages list";
     }
     flag = !flag;
-    localStorage.setItem('flag', flag);
+    localStorage.setItem("flag", flag);
   }
-  document.addEventListener('keyup', (e) => {
-    if (e.type === 'keyup' && e.ctrlKey && e.keyCode === 88) {
+  document.addEventListener("keyup", e => {
+    if (e.type === "keyup" && e.ctrlKey && e.keyCode === 88) {
       toggleNav();
     }
   });
-  button.addEventListener('click', toggleNav);
-})()
+  button.addEventListener("click", toggleNav);
+})();

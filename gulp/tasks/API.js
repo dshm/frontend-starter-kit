@@ -1,10 +1,10 @@
-import gulp from 'gulp';
-import paths from '../paths';
-import cached from 'gulp-cached';
+import gulp from "gulp";
+import cached from "gulp-cached";
+import paths from "../paths";
 
-gulp.task('API', () => {
-  return gulp
+gulp.task("API", () =>
+  gulp
     .src(`${paths.src.API}/*.json`)
     .pipe(cached())
-    .pipe(gulp.dest(paths.dist.API));
-});
+    .pipe(gulp.dest(paths.dist.API))
+);

@@ -5,13 +5,13 @@
 }
 %clearfix {
   &::after {
-    content: '';
+    content: "";
     display: block;
     clear: both;
   }
 }
 %pseudo {
-  content: '';
+  content: "";
   position: absolute;
   display: block;
 }
@@ -27,7 +27,7 @@
 
 @mixin verticalAlign() {
   &:before {
-    content: '';
+    content: "";
     display: inline-block;
     vertical-align: middle;
     height: 100%;
